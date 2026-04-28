@@ -1,0 +1,1738 @@
+[
+  {
+    "id": "5a8c1b3e-htn-dm-2026-04-27",
+    "input": {
+      "question": "What is the first-line treatment for hypertension in a 55-year-old male with diabetes?",
+      "conversationHistory": [],
+      "hasConversationHistory": false
+    },
+    "metadata": {
+      "questionType": "Therapy",
+      "scope": "internal",
+      "references": [
+        {
+          "pmid": "40815242",
+          "doi": "10.1016/j.jacc.2025.05.007",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40815242/",
+          "title": "2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Daniel W Jones"
+        },
+        {
+          "pmid": "41358899",
+          "doi": "10.2337/dc26-S010",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41358899/",
+          "title": "10. Cardiovascular Disease and Risk Management: Standards of Care in Diabetes-2026.",
+          "journal": "Diabetes care",
+          "year": 2026,
+          "citation_count": null,
+          "first_author": null
+        },
+        {
+          "pmid": "29610837",
+          "doi": "10.7326/M18-0222",
+          "url": "https://www.semanticscholar.org/paper/87ab5a6890cbcdbd1565b981324d704914a510bc",
+          "title": "Cardiovascular Disease and Risk Management: Review of the American Diabetes Association Standards of Medical Care in Diabetes 2018",
+          "journal": "Annals of Internal Medicine",
+          "year": 2018,
+          "citation_count": 90,
+          "first_author": "James Chamberlain"
+        },
+        {
+          "pmid": "40811497",
+          "doi": "10.1161/CIR.0000000000001356",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40811497/",
+          "title": "2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation and Management of High Blood Pressure in Adults: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Circulation",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Daniel W Jones"
+        },
+        {
+          "pmid": "31862753",
+          "doi": "10.2337/dc20-S010",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31862753/",
+          "title": "10. Cardiovascular Disease and Risk Management: Standards of Medical Care in Diabetes-2020.",
+          "journal": "Diabetes care",
+          "year": 2020,
+          "citation_count": null,
+          "first_author": null
+        },
+        {
+          "pmid": "32279539",
+          "doi": "10.1161/CIR.0000000000000766",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32279539/",
+          "title": "Clinical Management of Stable Coronary Artery Disease in Patients With Type 2 Diabetes Mellitus: A Scientific Statement From the American Heart Association.",
+          "journal": "Circulation",
+          "year": 2020,
+          "citation_count": null,
+          "first_author": "Suzanne V Arnold"
+        },
+        {
+          "pmid": "36272755",
+          "doi": "10.1016/j.kint.2022.06.013",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36272755/",
+          "title": "Executive summary of the KDIGO 2022 Clinical Practice Guideline for Diabetes Management in Chronic Kidney Disease: an update based on rapidly emerging new evidence.",
+          "journal": "Kidney international",
+          "year": 2022,
+          "citation_count": null,
+          "first_author": "Peter Rossing"
+        },
+        {
+          "pmid": "34774144",
+          "doi": "10.1016/S0140-6736(21)01920-6",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34774144/",
+          "title": "Blood pressure lowering and risk of new-onset type 2 diabetes: an individual participant data meta-analysis.",
+          "journal": "Lancet (London, England)",
+          "year": 2021,
+          "citation_count": 78,
+          "first_author": "Milad Nazarzadeh"
+        },
+        {
+          "pmid": "24157497",
+          "doi": "10.1136/bmj.f6008",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24157497/",
+          "title": "Comparative effectiveness of renin-angiotensin system blockers and other antihypertensive drugs in patients with diabetes: systematic review and bayesian network meta-analysis.",
+          "journal": "BMJ (Clinical research ed.)",
+          "year": 2013,
+          "citation_count": 225,
+          "first_author": "Hon-Yen Wu"
+        },
+        {
+          "pmid": "36272764",
+          "doi": "10.1016/j.kint.2022.06.008",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36272764/",
+          "title": "KDIGO 2022 Clinical Practice Guideline for Diabetes Management in Chronic Kidney Disease.",
+          "journal": "Kidney international",
+          "year": 2022,
+          "citation_count": null,
+          "first_author": null
+        },
+        {
+          "pmid": "36202661",
+          "doi": "10.1016/j.kint.2022.08.012",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36202661/",
+          "title": "Diabetes management in chronic kidney disease: a consensus report by the American Diabetes Association (ADA) and Kidney Disease: Improving Global Outcomes (KDIGO).",
+          "journal": "Kidney international",
+          "year": 2022,
+          "citation_count": null,
+          "first_author": "Ian H de Boer"
+        },
+        {
+          "pmid": "31862754",
+          "doi": "10.2337/dc20-S011",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31862754/",
+          "title": "11. Microvascular Complications and Foot Care: Standards of Medical Care in Diabetes-2020.",
+          "journal": "Diabetes care",
+          "year": 2020,
+          "citation_count": null,
+          "first_author": null
+        },
+        {
+          "pmid": "35878651",
+          "doi": "10.1016/S2213-8587(22)00172-3",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35878651/",
+          "title": "Blood pressure-lowering treatment for prevention of major cardiovascular diseases in people with and without type 2 diabetes: an individual participant-level data meta-analysis.",
+          "journal": "The lancet. Diabetes & endocrinology",
+          "year": 2022,
+          "citation_count": 48,
+          "first_author": "Milad Nazarzadeh"
+        },
+        {
+          "pmid": "24687000",
+          "doi": "10.1001/jamainternmed.2014.348",
+          "url": "https://www.semanticscholar.org/paper/520173b269bb51a776ef119cbc7e9099f64e157b",
+          "title": "Effect of angiotensin-converting enzyme inhibitors and angiotensin II receptor blockers on all-cause mortality, cardiovascular deaths, and cardiovascular events in patients with diabetes mellitus: a meta-analysis.",
+          "journal": "JAMA internal medicine",
+          "year": 2014,
+          "citation_count": 97,
+          "first_author": "Jun Cheng"
+        },
+        {
+          "pmid": "39091005",
+          "doi": "10.4093/dmj.2024.0249",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39091005/",
+          "title": "2023 Clinical Practice Guidelines for Diabetes Management in Korea: Full Version Recommendation of the Korean Diabetes Association.",
+          "journal": "Diabetes & metabolism journal",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Jun Sung Moon"
+        },
+        {
+          "pmid": "37793979",
+          "doi": "10.4093/dmj.2023.0282",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37793979/",
+          "title": "2023 Clinical Practice Guidelines for Diabetes Mellitus of the Korean Diabetes Association.",
+          "journal": "Diabetes & metabolism journal",
+          "year": 2023,
+          "citation_count": null,
+          "first_author": "Jong Han Choi"
+        },
+        {
+          "pmid": "39210715",
+          "doi": "10.1093/eurheartj/ehae178",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39210715/",
+          "title": "2024 ESC Guidelines for the management of elevated blood pressure and hypertension.",
+          "journal": "European heart journal",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "John William McEvoy"
+        },
+        {
+          "pmid": "39429201",
+          "doi": "10.1161/STR.0000000000000475",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39429201/",
+          "title": "2024 Guideline for the Primary Prevention of Stroke: A Guideline From the American Heart Association/American Stroke Association.",
+          "journal": "Stroke",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Cheryl Bushnell"
+        },
+        {
+          "pmid": "35965201",
+          "doi": "10.1016/j.jacc.2022.07.005",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35965201/",
+          "title": "Harmonization of the American College of Cardiology/American Heart Association and European Society of Cardiology/European Society of Hypertension Blood Pressure/Hypertension Guidelines: Comparisons, Reflections, and Recommendations.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2022,
+          "citation_count": null,
+          "first_author": "Paul K Whelton"
+        },
+        {
+          "pmid": "26009228",
+          "doi": "10.1016/S0140-6736(14)62459-4",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26009228/",
+          "title": "Comparative efficacy and safety of blood pressure-lowering agents in adults with diabetes and kidney disease: a network meta-analysis.",
+          "journal": "Lancet (London, England)",
+          "year": 2015,
+          "citation_count": 327,
+          "first_author": "Suetonia C Palmer"
+        },
+        {
+          "pmid": "40811516",
+          "doi": "10.1161/HYP.0000000000000249",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40811516/",
+          "title": "2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation and Management of High Blood Pressure in Adults: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Hypertension (Dallas, Tex. : 1979)",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Daniel W Jones"
+        },
+        {
+          "pmid": "37471501",
+          "doi": "10.1161/CIR.0000000000001168",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37471501/",
+          "title": "2023 AHA/ACC/ACCP/ASPC/NLA/PCNA Guideline for the Management of Patients With Chronic Coronary Disease: A Report of the American Heart Association/American College of Cardiology Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Circulation",
+          "year": 2023,
+          "citation_count": null,
+          "first_author": "Salim S Virani"
+        },
+        {
+          "pmid": "22883509",
+          "doi": "10.1016/S0140-6736(12)60987-8",
+          "url": "https://www.semanticscholar.org/paper/a568faa45ee3b6af2e519be7db94c4b9c590ae82",
+          "title": "Diabetes and hypertension: the bad companions",
+          "journal": "The Lancet",
+          "year": 2012,
+          "citation_count": 540,
+          "first_author": "E. Ferrannini"
+        },
+        {
+          "pmid": "37480922",
+          "doi": "10.1016/j.jacc.2023.04.003",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37480922/",
+          "title": "2023 AHA/ACC/ACCP/ASPC/NLA/PCNA Guideline for the Management of Patients With Chronic Coronary Disease: A Report of the American Heart Association/American College of Cardiology Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2023,
+          "citation_count": null,
+          "first_author": "Salim S Virani"
+        },
+        {
+          "pmid": "40329312",
+          "doi": "10.1186/s12933-025-02753-1",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40329312/",
+          "title": "Comparative effectiveness of angiotensin-converting enzyme inhibitors and angiotensin II receptor blockers on cardiovascular outcomes in older adults with type 2 diabetes mellitus: a target trial emulation study.",
+          "journal": "Cardiovascular diabetology",
+          "year": 2025,
+          "citation_count": 3,
+          "first_author": "Weihong Zeng"
+        },
+        {
+          "pmid": "34352984",
+          "doi": "10.4093/dmj.2021.0156",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34352984/",
+          "title": "2021 Clinical Practice Guidelines for Diabetes Mellitus of the Korean Diabetes Association.",
+          "journal": "Diabetes & metabolism journal",
+          "year": 2021,
+          "citation_count": null,
+          "first_author": "Kyu Yeon Hur"
+        },
+        {
+          "pmid": "26868137",
+          "doi": "10.1136/bmj.i438",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26868137/",
+          "title": "Diabetes mellitus as a compelling indication for use of renin angiotensin system blockers: systematic review and meta-analysis of randomized trials.",
+          "journal": "BMJ (Clinical research ed.)",
+          "year": 2016,
+          "citation_count": 157,
+          "first_author": "Sripal Bangalore"
+        }
+      ]
+    },
+    "datasetName": "vera-answers-htn-dm-sample",
+    "output": "<guideline>In adults with type 2 diabetes and hypertension, any of the standard first-line antihypertensive classes (thiazide-type/thiazide-like diuretic, long-acting dihydropyridine CCB, ACE inhibitor, or ARB) are appropriate for initial therapy; choose an ACE inhibitor or ARB preferentially when albuminuria (UACR ≥30 mg/g) and/or CKD (eGFR <60 mL/min/1.73 m²) is present, and ADA also recommends ACE inhibitor or ARB first-line when coronary artery disease is present. [doi: 10.1016/j.jacc.2025.05.007] [doi: 10.2337/dc26-S010]</guideline>\n\n**Practical first-line choice for a 55-year-old man with diabetes (most common “best first pick”):**\n- **ACE inhibitor (or ARB if ACEi-intolerant)**, **especially if any albuminuria or CKD is present** (renal protection and CV event reduction rationale across guidelines) [doi: 10.1016/j.jacc.2025.05.007] [doi: 10.2337/dc26-S010] [doi: 10.1016/j.kint.2022.06.008].\n- **If no albuminuria/CKD and no CAD:** guidelines consider **ACEi/ARB, thiazide-like diuretic (chlorthalidone/indapamide), or long-acting dihydropyridine CCB** all acceptable as *initial* therapy; selection can be based on patient-specific factors (electrolytes, edema, gout, etc.) [doi: 10.1016/j.jacc.2025.05.007] [doi: 10.2337/dc26-S010]."
+  },
+  {
+    "id": "9c4d2f1a-uc-flare-2026-04-27",
+    "input": {
+      "question": "Severe UC flare in a 32F with prior steroid response — initial management?",
+      "conversationHistory": [],
+      "hasConversationHistory": false
+    },
+    "metadata": {
+      "questionType": "Therapy",
+      "scope": "internal",
+      "references": [
+        {
+          "pmid": "39586616",
+          "doi": "10.1136/gutjnl-2024-333281",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39586616/",
+          "title": "Top-down infliximab plus azathioprine versus azathioprine alone in patients with acute severe ulcerative colitis responsive to intravenous steroids: a parallel, open-label randomised controlled trial, the ACTIVE trial.",
+          "journal": "Gut",
+          "year": 2025,
+          "citation_count": 4,
+          "first_author": "Aurelien Amiot"
+        },
+        {
+          "pmid": "41579011",
+          "doi": "10.1053/j.gastro.2025.08.039",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41579011/",
+          "title": "AGA Clinical Practice Update on Inpatient Management of Adults With Inflammatory Bowel Disease: Expert Review.",
+          "journal": "Gastroenterology",
+          "year": 2026,
+          "citation_count": null,
+          "first_author": "Shirley Cohen-Mekelburg"
+        },
+        {
+          "pmid": "39236736",
+          "doi": "10.1016/S2468-1253(24)00200-0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39236736/",
+          "title": "Intensified versus standard dose infliximab induction therapy for steroid-refractory acute severe ulcerative colitis (PREDICT-UC): an open-label, multicentre, randomised controlled trial.",
+          "journal": "The lancet. Gastroenterology & hepatology",
+          "year": 2024,
+          "citation_count": 14,
+          "first_author": "Matthew C Choy"
+        },
+        {
+          "pmid": "38834296",
+          "doi": "10.1136/gutjnl-2024-332489",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38834296/",
+          "title": "Acute severe ulcerative colitis trials: the past, the present and the future.",
+          "journal": "Gut",
+          "year": 2024,
+          "citation_count": 20,
+          "first_author": "Sailish Honap"
+        },
+        {
+          "pmid": "39572132",
+          "doi": "10.1053/j.gastro.2024.10.001",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39572132/",
+          "title": "AGA Living Clinical Practice Guideline on Pharmacological Management of Moderate-to-Severe Ulcerative Colitis.",
+          "journal": "Gastroenterology",
+          "year": 2024,
+          "citation_count": 27,
+          "first_author": "Siddharth Singh"
+        },
+        {
+          "pmid": "31945351",
+          "doi": "10.1053/j.gastro.2020.01.007",
+          "url": "https://www.semanticscholar.org/paper/285dc8ace5483efc25d3881ad50ad4fb0a42407a",
+          "title": "AGA Technical Review on the Management of Moderate to Severe Ulcerative Colitis.",
+          "journal": "Gastroenterology",
+          "year": 2020,
+          "citation_count": 85,
+          "first_author": "Siddharth Singh"
+        },
+        {
+          "pmid": "39236736",
+          "doi": "10.1016/s2468-1253(24)00200-0",
+          "url": "https://www.semanticscholar.org/paper/3915a358855651a4fcd44936e8cc4ec2f46e5c6e",
+          "title": "Intensified versus standard dose infliximab induction therapy for steroid-refractory acute severe ulcerative colitis (PREDICT-UC): an open-label, multicentre, randomised controlled trial.",
+          "journal": "The lancet. Gastroenterology & hepatology",
+          "year": 2024,
+          "citation_count": 7,
+          "first_author": "M. Choy"
+        },
+        {
+          "pmid": "36171080",
+          "doi": "10.1136/gutjnl-2022-327533",
+          "url": "https://www.semanticscholar.org/paper/47da18c5a6b39f3de654438bc1932173d57becf0",
+          "title": "Early management of acute severe UC in the biologics era: development and international validation of a prognostic clinical index to predict steroid response",
+          "journal": "Gut",
+          "year": 2022,
+          "citation_count": 32,
+          "first_author": "A. Adams"
+        },
+        {
+          "pmid": "31945371",
+          "doi": "10.1053/j.gastro.2020.01.006",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31945371/",
+          "title": "AGA Clinical Practice Guidelines on the Management of Moderate to Severe Ulcerative Colitis.",
+          "journal": "Gastroenterology",
+          "year": 2020,
+          "citation_count": null,
+          "first_author": "Joseph D Feuerstein"
+        },
+        {
+          "pmid": "38340753",
+          "doi": "10.1016/S2468-1253(23)00313-8",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38340753/",
+          "title": "Acute severe ulcerative colitis management: unanswered questions and latest insights.",
+          "journal": "The lancet. Gastroenterology & hepatology",
+          "year": 2024,
+          "citation_count": 21,
+          "first_author": "Pauline Rivière"
+        },
+        {
+          "pmid": "28053054",
+          "doi": "10.1136/gutjnl-2016-313060",
+          "url": "https://www.semanticscholar.org/paper/c9cbcaaa78d34e691ea7eaaa18f8d872c8613678",
+          "title": "Long-term outcome of patients with steroid-refractory acute severe UC treated with ciclosporin or infliximab",
+          "journal": "Gut",
+          "year": 2017,
+          "citation_count": 125,
+          "first_author": "D. Laharie"
+        },
+        {
+          "pmid": "38980753",
+          "doi": "10.1093/ecco-jcc/jjae111",
+          "url": "https://www.semanticscholar.org/paper/548ee7ab72c96b15c62560e02530b3cf98c28601",
+          "title": "Rescue Therapies for Steroid-Refractory Acute Severe Ulcerative Colitis: A Systemic Review and Network Meta-analysis.",
+          "journal": "Journal of Crohn's & colitis",
+          "year": 2024,
+          "citation_count": 1,
+          "first_author": "Chih-Wen Huang"
+        },
+        {
+          "pmid": "34856198",
+          "doi": "10.1016/S2468-1253(21)00377-0",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34856198/",
+          "title": "Efficacy and safety of biologics and small molecule drugs for patients with moderate-to-severe ulcerative colitis: a systematic review and network meta-analysis.",
+          "journal": "The lancet. Gastroenterology & hepatology",
+          "year": 2022,
+          "citation_count": 199,
+          "first_author": "Juan S Lasa"
+        },
+        {
+          "pmid": "25747596",
+          "doi": "10.1053/j.gastro.2015.03.001",
+          "url": "https://www.semanticscholar.org/paper/54964952d80b6c7b60100f3e967bad7e0d2e6873",
+          "title": "Clinical practice guidelines for the medical management of nonhospitalized ulcerative colitis: the Toronto consensus.",
+          "journal": "Gastroenterology",
+          "year": 2015,
+          "citation_count": 356,
+          "first_author": "B. Bressler"
+        },
+        {
+          "pmid": "40339949",
+          "doi": "10.1016/j.cgh.2025.03.007",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40339949/",
+          "title": "Medical Therapy for Acute Severe Ulcerative Colitis: A Systematic Review With Meta-analysis.",
+          "journal": "Clinical gastroenterology and hepatology",
+          "year": 2025,
+          "citation_count": 0,
+          "first_author": "Sudheer K Vuyyuru"
+        },
+        {
+          "pmid": "41850540",
+          "doi": "10.1053/j.gastro.2026.02.034",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41850540/",
+          "title": "Intestinal Ultrasound Scan in Acute Severe Ulcerative Colitis in Children: A Multicenter Prospective Study on Behalf of the Porto Inflammatory Bowel Disease Working Group of European Society for Paediatric Gastroenterology Hepatology and Nutrition.",
+          "journal": "Gastroenterology",
+          "year": 2026,
+          "citation_count": null,
+          "first_author": "Luca Scarallo"
+        },
+        {
+          "pmid": "40701396",
+          "doi": "10.1053/j.gastro.2025.07.020",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40701396/",
+          "title": "Early Infliximab Levels and Clearance Predict Outcomes After Infliximab Rescue in Acute Severe Ulcerative Colitis: Results From PREDICT-UC.",
+          "journal": "Gastroenterology",
+          "year": 2025,
+          "citation_count": 0,
+          "first_author": "Christopher F D Li Wai Suen"
+        },
+        {
+          "pmid": "36860164",
+          "doi": "10.1093/ecco-jcc/jjad036",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36860164/",
+          "title": "Tofacitinib for Acute Severe Ulcerative Colitis: A Systematic Review.",
+          "journal": "Journal of Crohn's & colitis",
+          "year": 2023,
+          "citation_count": 39,
+          "first_author": "Casper Steenholdt"
+        },
+        {
+          "pmid": "36652279",
+          "doi": "10.1093/ecco-jcc/jjad004",
+          "url": "https://www.semanticscholar.org/paper/72fb84bca20f6cbfa230d51e22463d1ca3306721",
+          "title": "Rescue therapies for steroid-refractory acute severe ulcerative colitis: A review.",
+          "journal": "Journal of Crohn's & colitis",
+          "year": 2023,
+          "citation_count": 30,
+          "first_author": "J. Gisbert"
+        },
+        {
+          "pmid": "33545083",
+          "doi": "10.1016/S2468-1253(21)00016-9",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33545083/",
+          "title": "Assessment, endoscopy, and treatment in patients with acute severe ulcerative colitis during the COVID-19 pandemic (PROTECT-ASUC): a multicentre, observational, case-control study.",
+          "journal": "The lancet. Gastroenterology & hepatology",
+          "year": 2021,
+          "citation_count": 30,
+          "first_author": "Shaji Sebastian"
+        },
+        {
+          "pmid": "33175102",
+          "doi": "10.1093/ecco-jcc/jjaa226",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33175102/",
+          "title": "Ciclosporin or Infliximab as Rescue Therapy in Acute Glucorticosteroid-Refractory Ulcerative Colitis: Systematic Review and Network Meta-Analysis.",
+          "journal": "Journal of Crohn's & colitis",
+          "year": 2021,
+          "citation_count": 17,
+          "first_author": "Brigida Barberio"
+        },
+        {
+          "pmid": "39425738",
+          "doi": "10.1053/j.gastro.2024.07.046",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39425738/",
+          "title": "Comparative Efficacy of Advanced Therapies for Management of Moderate-to-Severe Ulcerative Colitis: 2024 American Gastroenterological Association Evidence Synthesis.",
+          "journal": "Gastroenterology",
+          "year": 2024,
+          "citation_count": 11,
+          "first_author": "Ashwin N Ananthakrishnan"
+        },
+        {
+          "pmid": "37698559",
+          "doi": "10.1001/jama.2023.15389",
+          "url": "https://www.semanticscholar.org/paper/d658a2a9a037679f00203b52f55d47d3d883483a",
+          "title": "Ulcerative Colitis in Adults: A Review.",
+          "journal": "JAMA",
+          "year": 2023,
+          "citation_count": 136,
+          "first_author": "B. Gros"
+        },
+        {
+          "pmid": "38340753",
+          "doi": "10.1016/s2468-1253(23)00313-8",
+          "url": "https://www.semanticscholar.org/paper/840bc02dfed7db24950bc78bfdc41c35dc6540aa",
+          "title": "Acute severe ulcerative colitis management: unanswered questions and latest insights.",
+          "journal": "The lancet. Gastroenterology & hepatology",
+          "year": 2024,
+          "citation_count": 11,
+          "first_author": "P. Rivière"
+        },
+        {
+          "pmid": "15940615",
+          "doi": "10.1053/J.GASTRO.2005.03.003",
+          "url": "https://www.semanticscholar.org/paper/4e03071f11f64e7225e2851daea5166fc2c75b52",
+          "title": "Infliximab as rescue therapy in severe to moderately severe ulcerative colitis: a randomized, placebo-controlled study.",
+          "journal": "Gastroenterology",
+          "year": 2005,
+          "citation_count": 1103,
+          "first_author": "G. Järnerot"
+        },
+        {
+          "pmid": "20193683",
+          "doi": "10.1053/j.gastro.2010.02.047",
+          "url": "https://www.semanticscholar.org/paper/fa0b3e77ab900292a969ae7508f4c70f0c77cc9f",
+          "title": "Severe pediatric ulcerative colitis: a prospective multicenter study of outcomes and predictors of response.",
+          "journal": "Gastroenterology",
+          "year": 2010,
+          "citation_count": 236,
+          "first_author": "D. Turner"
+        },
+        {
+          "pmid": "38128971",
+          "doi": "10.1053/j.gastro.2023.10.015",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38128971/",
+          "title": "AGA Clinical Practice Guideline on the Management of Pouchitis and Inflammatory Pouch Disorders.",
+          "journal": "Gastroenterology",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Edward L Barnes"
+        },
+        {
+          "pmid": "26645641",
+          "doi": "10.1093/ecco-jcc/jjv221",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/26645641/",
+          "title": "Efficacy and Safety of Tacrolimus Therapy for Active Ulcerative Colitis; A Systematic Review and Meta-analysis.",
+          "journal": "Journal of Crohn's & colitis",
+          "year": 2016,
+          "citation_count": 76,
+          "first_author": "Yuga Komaki"
+        }
+      ]
+    },
+    "datasetName": "vera-answers-uc-flare-sample",
+    "output": "<guideline>\nFor hospitalized adults with acute severe UC (ASUC), the AGA recommends IV methylprednisolone 40–60 mg/day equivalent as initial therapy, with assessment of response at 72 hours; patients refractory to a 3–5 day trial should receive rescue therapy with infliximab or cyclosporine. [doi: 10.1053/j.gastro.2020.01.006] [doi: 10.1053/j.gastro.2025.08.039]\n</guideline>\n\n## Step 1: Confirm ASUC Diagnosis (Truelove & Witts Criteria)\n≥6 bloody stools/day **plus** ≥1 of: HR >90, fever >37.8°C, Hgb <10.5 g/dL, ESR >30 mm/h. CRP adds prognostic value (shorter half-life, tracks acute changes) [doi: 10.1053/j.gastro.2025.08.039].\n\n## Step 2: Admission Workup & Supportive Care\n- **Stool cultures, C. diff PCR, CMV serology/biopsy** — exclude infectious triggers before/during steroids\n- **CBC, CMP, CRP, albumin** — low albumin (≤25 g/L) + CRP ≥100 mg/L + UCEIS ≥4 at admission predicts steroid failure (score ≥3 → 84% predictive of failure, OR 11.9) [doi: 10.1136/gutjnl-2022-327533]\n- **Prophylactic anticoagulation** (VTE risk elevated in ASUC)\n- **Surgical consultation at admission** — do not delay colectomy counseling [doi: 10.1053/j.gastro.2025.08.039]\n- **Do not withhold steroids** while awaiting pathogen results\n\n## Step 3: First-Line — IV Corticosteroids\n**Methylprednisolone 60 mg/day** (in 2–3 divided doses); doses >60 mg add no benefit but increase toxicity [doi: 10.1053/j.gastro.2020.01.006]. Given her **prior steroid response**, she is likely to respond again.\n\n## Step 4: Assess Response at 72 Hours (Oxford/Travis Criteria)\n**85% of patients** with ≥8 stools/day OR 3–8 stools/day + CRP >4.5 mg/dL on day 3 will require colectomy if continued on steroids alone [doi: 10.1053/j.gastro.2025.08.039].\n\n| Day 3 Finding | Action |\n|---|---|\n| Responding (stool frequency ↓, CRP ↓) | Continue IV steroids → transition to oral → plan maintenance |\n| Not responding | Initiate rescue therapy; do not extend IV steroids beyond 7 days |\n\n## Step 5: If Steroid-Refractory — Rescue Therapy\n\n**Infliximab is preferred** over cyclosporine based on 2025 meta-analysis (44 studies, 2,004 patients) showing IFX superior to cyclosporine for colectomy reduction at discharge (RR 0.56, 95% CI 0.38–0.81) [doi: 10.1016/j.cgh.2025.03.007]. Long-term (5-year) colectomy-free survival is equivalent between the two [doi: 10.1136/gutjnl-2016-313060].\n\n- **Standard IFX**: 5 mg/kg IV at weeks 0, 2, 6\n- **Intensified dosing (10 mg/kg)**: Consider in patients with high inflammatory burden, low albumin, or high predicted drug clearance — day 3 IFX level ≤57.9 μg/mL predicts colectomy (83% sensitivity, 97% NPV); high clearance (≥0.62 L/d) patients benefit from 10 mg/kg first dose [doi: 10.1053/j.gastro.2025.07.020] [doi: 10.1016/S2468-1253(24]00200-0)\n- **Tofacitinib**: Emerging role (especially in prior anti-TNF failures); 30-day colectomy-free survival 85%, 90-day 86% [doi: 10.1093/ecco-jcc/jjad036]; network meta-analysis shows highest colectomy reduction vs placebo (OR 0.09) [doi: 10.1093/ecco-jcc/jjae111]\n- **Cyclosporine 2 mg/kg/day IV**: Valid alternative, especially if infliximab contraindicated; bridge to vedolizumab or ustekinumab for maintenance in TNF-exposed patients\n\n## Step 6: Maintenance After Steroid Response (Key for This Patient)\n\nGiven **prior steroid response** (suggesting steroid-responsive disease), the 2025 ACTIVE RCT (*Gut*, n=64, biologic/thiopurine-naïve) showed **IFX + azathioprine combination significantly reduced treatment failure at 52 weeks vs AZA alone** (53.3% vs 81.5%, RR 3.85, 95% CI 1.15–12.88, p=0.03) [doi: 10.1136/gutjnl-2024-333281]. This supports **top-down IFX + AZA** as maintenance even in steroid-responders.\n\nThe AGA Living Guidelines also support **IFX + immunomodulator combination over monotherapy** in biologic-naïve patients with moderate-to-severe UC [doi: 10.1053/j.gastro.2024.10.001].\n\n## Summary Algorithm for This 32F\n\n```\nAdmit → IV methylprednisolone 60 mg/day + VTE prophylaxis + surgical consult\n          ↓\n       Day 3 assessment\n      /              \\\n  Responding        Not responding\n      ↓                    ↓\nOral taper        IFX rescue (5–10 mg/kg based on clearance/albumin)\n      ↓                    ↓\nIFX + AZA         Continue IFX + AZA maintenance (or cyclosporine bridge)\nmaintenance       vs. colectomy if failure\n```"
+  },
+  {
+    "id": "7e9b3a2c-pe-ddx-2026-04-27",
+    "input": {
+      "question": "Differential for 45F with acute SOB, pleuritic CP, unilateral leg swelling, recent travel",
+      "conversationHistory": [],
+      "hasConversationHistory": false
+    },
+    "metadata": {
+      "questionType": "Diagnosis",
+      "scope": "internal",
+      "references": [
+        {
+          "pmid": "41712898",
+          "doi": "10.1016/j.jacc.2025.11.005",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41712898/",
+          "title": "2026 AHA/ACC/ACCP/ACEP/CHEST/SCAI/SHM/SIR/SVM/SVN Guideline for the Evaluation and Management of Acute Pulmonary Embolism in Adults: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2026,
+          "citation_count": null,
+          "first_author": "Mark A Creager"
+        },
+        {
+          "pmid": "41712677",
+          "doi": "10.1161/CIR.0000000000001415",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41712677/",
+          "title": "2026 AHA/ACC/ACCP/ACEP/CHEST/SCAI/SHM/SIR/SVM/SVN Guideline for the Evaluation and Management of Acute Pulmonary Embolism in Adults: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Circulation",
+          "year": 2026,
+          "citation_count": null,
+          "first_author": "Mark A Creager"
+        },
+        {
+          "pmid": "34709879",
+          "doi": "10.1161/CIR.0000000000001029",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34709879/",
+          "title": "2021 AHA/ACC/ASE/CHEST/SAEM/SCCT/SCMR Guideline for the Evaluation and Diagnosis of Chest Pain: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Circulation",
+          "year": 2021,
+          "citation_count": null,
+          "first_author": "Martha Gulati"
+        },
+        {
+          "pmid": "37452732",
+          "doi": "10.1093/eurheartj/ehad417",
+          "url": "https://www.semanticscholar.org/paper/cdd4337163ff946951b07a248c6640fd6434521a",
+          "title": "Diagnostic management of acute pulmonary embolism: a prediction model based on a patient data meta-analysis",
+          "journal": "European Heart Journal",
+          "year": 2023,
+          "citation_count": 15,
+          "first_author": "N. van Es"
+        },
+        {
+          "pmid": "36194215",
+          "doi": "10.1001/jama.2022.16815",
+          "url": "https://www.semanticscholar.org/paper/0c373a21e1a1c7cefa505532f257738f0ee21393",
+          "title": "Acute Pulmonary Embolism: A Review.",
+          "journal": "JAMA",
+          "year": 2022,
+          "citation_count": 97,
+          "first_author": "Y. Freund"
+        },
+        {
+          "pmid": "41729142",
+          "doi": "10.1016/j.jacc.2025.12.023",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41729142/",
+          "title": "2026 Acute Pulmonary Embolism Guideline-at-a-Glance.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2026,
+          "citation_count": null,
+          "first_author": "David M Dudzinski"
+        },
+        {
+          "pmid": "34756653",
+          "doi": "10.1016/j.jacc.2021.07.053",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34756653/",
+          "title": "2021 AHA/ACC/ASE/CHEST/SAEM/SCCT/SCMR Guideline for the Evaluation and Diagnosis of Chest Pain: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2021,
+          "citation_count": null,
+          "first_author": "Martha Gulati"
+        },
+        {
+          "pmid": "33320063",
+          "doi": "10.1148/radiol.2020203557",
+          "url": "https://www.semanticscholar.org/paper/33bef1944414a9156a519ce31122667eb0b3b092",
+          "title": "Pulmonary Embolism and Deep Vein Thrombosis in COVID-19: A Systematic Review and Meta-Analysis",
+          "journal": "Radiology",
+          "year": 2020,
+          "citation_count": 361,
+          "first_author": "Y. J. Suh"
+        },
+        {
+          "pmid": "39236759",
+          "doi": "10.6004/jnccn.2024.0046",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39236759/",
+          "title": "Cancer-Associated Venous Thromboembolic Disease, Version 2.2024, NCCN Clinical Practice Guidelines in Oncology.",
+          "journal": "Journal of the National Comprehensive Cancer Network : JNCCN",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Michael B Streiff"
+        },
+        {
+          "pmid": "31504429",
+          "doi": "10.1093/eurheartj/ehz405",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31504429/",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism developed in collaboration with the European Respiratory Society (ERS).",
+          "journal": "European heart journal",
+          "year": 2020,
+          "citation_count": null,
+          "first_author": "Stavros V Konstantinides"
+        },
+        {
+          "pmid": "31473594",
+          "doi": "10.1183/13993003.01647-2019",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31473594/",
+          "title": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism developed in collaboration with the European Respiratory Society (ERS): The Task Force for the diagnosis and management of acute pulmonary embolism of the European Society of Cardiology (ESC).",
+          "journal": "The European respiratory journal",
+          "year": 2019,
+          "citation_count": null,
+          "first_author": "Stavros V Konstantinides"
+        },
+        {
+          "pmid": "35077453",
+          "doi": "10.1371/journal.pmed.1003905",
+          "url": "https://www.semanticscholar.org/paper/88297a4742ab2e437a51703e9c7bec9fbb30953b",
+          "title": "Ruling out pulmonary embolism across different healthcare settings: A systematic review and individual patient data meta-analysis",
+          "journal": "PLoS Medicine",
+          "year": 2022,
+          "citation_count": 25,
+          "first_author": "G. Geersing"
+        },
+        {
+          "pmid": "29681319",
+          "doi": "10.1016/j.annemergmed.2018.03.006",
+          "url": "https://doi.org/10.1016/j.annemergmed.2018.03.006",
+          "title": "Critical Issues in the Evaluation and Management of Adult Patients Presenting to the Emergency Department With Suspected Acute Venous Thromboembolic Disease",
+          "journal": "American College of Emergency Physicians (ACEP)",
+          "year": 2018,
+          "citation_count": null,
+          "first_author": "Stephen J. Wolf"
+        },
+        {
+          "pmid": "26414967",
+          "doi": "10.7326/M14-1772",
+          "url": "https://www.semanticscholar.org/paper/ee565358f8851aa69981cb106b9c6df5209264ec",
+          "title": "Evaluation of Patients With Suspected Acute Pulmonary Embolism: Best Practice Advice From the Clinical Guidelines Committee of the American College of Physicians.",
+          "journal": "Annals of internal medicine",
+          "year": 2015,
+          "citation_count": 266,
+          "first_author": "A. Raja"
+        },
+        {
+          "pmid": "31774957",
+          "doi": "10.1056/NEJMoa1909159",
+          "url": "https://www.semanticscholar.org/paper/81ae1bd9b71d4701b274a407a154f5cf9f2d3bda",
+          "title": "Diagnosis of Pulmonary Embolism with d-Dimer Adjusted to Clinical Probability.",
+          "journal": "The New England journal of medicine",
+          "year": 2019,
+          "citation_count": 232,
+          "first_author": "C. Kearon"
+        },
+        {
+          "pmid": "32227120",
+          "doi": "10.1093/eurheartj/ehaa254",
+          "url": "https://www.semanticscholar.org/paper/da92dd5ca443c8ac643d3860527ba5adef1b5700",
+          "title": "Acute pulmonary embolism and COVID-19 pneumonia: a random association?",
+          "journal": "European Heart Journal",
+          "year": 2020,
+          "citation_count": 610,
+          "first_author": "G. Danzi"
+        }
+      ]
+    },
+    "datasetName": "vera-answers-pe-ddx-sample",
+    "output": "**Pulmonary embolism (PE) with concurrent DVT is the leading diagnosis** and must not be missed in this presentation. The triad of pleuritic chest pain, acute dyspnea, and unilateral leg swelling following travel is the classic PE constellation; the 2026 AHA/ACC guideline identifies these as the most common PE symptoms [doi: 10.1161/CIR.0000000000001415].\n\n**Wells Score for this patient (minimum estimate):**\n- Clinical symptoms of DVT (unilateral leg swelling): **+3**\n- PE more likely than other diagnoses: **+3**\n- Immobilization (travel): **+1.5**\n- **Total ≥7.5 → High pretest probability → Proceed directly to CTPA; skip D-dimer**\n\n<guideline authority=\"acep\">\nACEP clinical policy recommends using validated clinical decision rules (Wells score, revised Geneva score) to guide pretest probability assessment in suspected VTE; patients with high pretest probability should proceed directly to imaging without D-dimer testing. [doi: 10.1016/j.annemergmed.2018.03.006]\n</guideline>\n\n---\n\n### Differential Diagnosis — Ranked by Likelihood and Clinical Priority\n\n| Diagnosis | Supporting Features in This Case | Must-Not-Miss | Clinical Evidence |\n|---|---|---|---|\n| **Pulmonary embolism + DVT** | Pleuritic CP, SOB, unilateral leg swelling, recent travel (immobility) | ✅ | Most common PE symptoms per 2026 AHA/ACC guideline [doi: 10.1161/CIR.0000000000001415]; Wells ≥7.5 → ~65% PE probability [doi: 10.1093/eurheartj/ehz405] |\n| **Pneumonia with pleuritis** | Pleuritic CP, SOB; leg swelling would be coincidental | ✅ | AHA/ACC chest pain guideline: pneumonia causes localized pleuritic pain ± friction rub [doi: 10.1161/CIR.0000000000001029] |\n| **Aortic dissection** | SOB, chest pain; absent pulse differential makes it less likely | ✅ | Guideline: severe tearing/back pain + limb pulse differential more typical; sensitivity of pulse deficit alone only 30% [doi: 10.1161/CIR.0000000000001029] |\n| **ACS / NSTE-ACS** | SOB, chest pain; pleuritic quality and leg swelling atypical | ✅ | Central PE can mimic angina via RV ischemia; requires ECG/troponin [doi: 10.1093/eurheartj/ehz405] |\n| **Pneumothorax** | Pleuritic CP, acute SOB; unilateral absent breath sounds expected | — | AHA/ACC: pleuritic pain + unilateral absent breath sounds typical [doi: 10.1161/CIR.0000000000001029] |\n| **Pericarditis** | Pleuritic-type CP; pain worsens supine, friction rub; leg swelling atypical | — | AHA/ACC: chest pain increases supine, associated friction rub [doi: 10.1161/CIR.0000000000001029] |\n| **Musculoskeletal/costochondritis** | Diagnosis of exclusion; reproducible tenderness markedly reduces ACS/PE probability | — | AHA/ACC: costochondral tenderness reduces ACS probability [doi: 10.1161/CIR.0000000000001029] |\n\n---\n\n### Immediate Workup\n\n- **CTPA (PE protocol)** — first-line given high pretest probability; do not delay for D-dimer [doi: 10.7326/M14-1772]\n- **Bilateral lower extremity venous duplex ultrasound** — confirm DVT; influences management if CTPA non-diagnostic\n- **ECG** — RV strain pattern (S1Q3T3, T-wave inversions V1–V4, sinus tachycardia), or ischemia/pericarditis changes\n- **Troponin + BNP** — RV myocardial injury/dysfunction markers; predict mortality if elevated [doi: 10.1161/CIR.0000000000001029]\n- **ABG** — hypoxemia, hypocapnia common in PE (though ≤40% have normal SaO₂) [doi: 10.1093/eurheartj/ehz405]\n- **CBC, CMP, CXR** — baseline; CXR may show Hampton's hump, Westermark sign (PE), or consolidation (pneumonia)\n\n\\![PESI Risk Stratification](https://figuresguidelines.blob.core.windows.net/figures/figure_Venous_Thromboembolism_CP_2018-Figure1-1.png)\n\n**Key clinical pearl:** Per individual patient data meta-analysis of 28,305 patients, the strongest predictors of PE include clinical DVT signs, immobilization, and D-dimer level — this patient scores highly on all modifiable risk factors [doi: 10.1093/eurheartj/ehad417]. Begin anticoagulation empirically if CTPA is delayed and PE probability is high, absent contraindications."
+  },
+  {
+    "id": "8d2a7c4f-gerd-refractory-2026-04-27",
+    "input": {
+      "question": "Refractory GERD after failed BID PPI in a 45M",
+      "conversationHistory": [],
+      "hasConversationHistory": false
+    },
+    "metadata": {
+      "questionType": "Therapy",
+      "scope": "internal",
+      "references": [
+        {
+          "pmid": "31618539",
+          "doi": "10.1056/NEJMoa1811424",
+          "url": "https://www.semanticscholar.org/paper/30a90ff99e144d1d12bfad4b28e65d254ef4195b",
+          "title": "Randomized Trial of Medical versus Surgical Treatment for Refractory Heartburn.",
+          "journal": "The New England journal of medicine",
+          "year": 2019,
+          "citation_count": 169,
+          "first_author": "S. Spechler"
+        },
+        {
+          "pmid": "25448925",
+          "doi": "10.1053/j.gastro.2014.10.009",
+          "url": "https://www.semanticscholar.org/paper/2cf2bceaa56e7890b70fd99e0be524e6bacb1226",
+          "title": "Efficacy of transoral fundoplication vs omeprazole for treatment of regurgitation in a randomized controlled trial.",
+          "journal": "Gastroenterology",
+          "year": 2015,
+          "citation_count": 205,
+          "first_author": "J. Hunter"
+        },
+        {
+          "pmid": "27261337",
+          "doi": "10.1136/gutjnl-2016-311715",
+          "url": "https://www.semanticscholar.org/paper/a294d55457446d0433058a4a19ae8184e62e8b92",
+          "title": "Asia-Pacific consensus on the management of gastro-oesophageal reflux disease: an update focusing on refractory reflux disease and Barrett's oesophagus",
+          "journal": "Gut",
+          "year": 2016,
+          "citation_count": 163,
+          "first_author": "K. Fock"
+        },
+        {
+          "pmid": "37734911",
+          "doi": "10.1136/gutjnl-2023-330616",
+          "url": "https://www.semanticscholar.org/paper/a7f21edb587864bf1d087b289e2bd2346fb10e0f",
+          "title": "Updates to the modern diagnosis of GERD: Lyon consensus 2.0",
+          "journal": "Gut",
+          "year": 2023,
+          "citation_count": 119,
+          "first_author": "C. Gyawali"
+        },
+        {
+          "pmid": "37286639",
+          "doi": "10.1038/s41575-023-00789-w",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37286639/",
+          "title": "The International Network on Oesophageal Atresia (INoEA) consensus guidelines on the transition of patients with oesophageal atresia-tracheoesophageal fistula.",
+          "journal": "Nature reviews. Gastroenterology & hepatology",
+          "year": 2023,
+          "citation_count": null,
+          "first_author": "Usha Krishnan"
+        },
+        {
+          "pmid": "29305934",
+          "doi": "10.1053/j.gastro.2017.12.021",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29305934/",
+          "title": "Efficacy of Laparoscopic Nissen Fundoplication vs Transoral Incisionless Fundoplication or Proton Pump Inhibitors in Patients With Gastroesophageal Reflux Disease: A Systematic Review and Network Meta-analysis.",
+          "journal": "Gastroenterology",
+          "year": 2018,
+          "citation_count": 143,
+          "first_author": "Joel E Richter"
+        },
+        {
+          "pmid": "32092310",
+          "doi": "10.1053/j.gastro.2020.02.031",
+          "url": "https://www.semanticscholar.org/paper/8569200c11671c9a8de0fd912dc7bfee67f0179d",
+          "title": "IW-3718 Reduces Heartburn Severity in Patients With Refractory Gastroesophageal Reflux Disease in a Randomized Trial.",
+          "journal": "Gastroenterology",
+          "year": 2020,
+          "citation_count": 33,
+          "first_author": "M. Vaezi"
+        },
+        {
+          "pmid": "38763697",
+          "doi": "10.1053/j.gastro.2024.03.019",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38763697/",
+          "title": "AGA Clinical Practice Guideline on Endoscopic Eradication Therapy of Barrett's Esophagus and Related Neoplasia.",
+          "journal": "Gastroenterology",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Joel H Rubenstein"
+        },
+        {
+          "pmid": "28827081",
+          "doi": "10.1053/j.gastro.2017.07.049",
+          "url": "https://www.semanticscholar.org/paper/c5b54a3919180882f83e4846b90130c7c5f894dd",
+          "title": "Management of Gastroesophageal Reflux Disease.",
+          "journal": "Gastroenterology",
+          "year": 2017,
+          "citation_count": 192,
+          "first_author": "P. Gyawali"
+        },
+        {
+          "pmid": "22684483",
+          "doi": "10.1136/gutjnl-2011-301897",
+          "url": "https://www.semanticscholar.org/paper/e2a7a99719cb08fd05499a0730a94d497d009ae1",
+          "title": "Diagnosis and management of patients with reflux symptoms refractory to proton pump inhibitors",
+          "journal": "Gut",
+          "year": 2012,
+          "citation_count": 330,
+          "first_author": "D. Sifrim"
+        },
+        {
+          "pmid": "32017911",
+          "doi": "10.1053/j.gastro.2020.01.034",
+          "url": "https://www.semanticscholar.org/paper/e96ea6af6453954351ea584eb2d70cab5c2ee443",
+          "title": "AGA Clinical Practice Update on Functional Heartburn: Expert Review.",
+          "journal": "Gastroenterology",
+          "year": 2020,
+          "citation_count": 45,
+          "first_author": "R. Fass"
+        },
+        {
+          "pmid": "31375601",
+          "doi": "10.1136/gutjnl-2019-318260",
+          "url": "https://www.semanticscholar.org/paper/b97d629f7d4312708f3da97f33904febc7a179d9",
+          "title": "How to select patients for antireflux surgery? The ICARUS guidelines (international consensus regarding preoperative examinations and clinical characteristics assessment to select adult patients for antireflux surgery)",
+          "journal": "Gut",
+          "year": 2019,
+          "citation_count": 77,
+          "first_author": "A. Pauwels"
+        },
+        {
+          "pmid": "32467089",
+          "doi": "10.1136/gutjnl-2020-321395",
+          "url": "https://www.semanticscholar.org/paper/8f092bca0bf525cd02db95ee335cbe9e9bf2c76f",
+          "title": "Number of reflux episodes on pH-impedance monitoring associates with improved symptom outcome and treatment satisfaction in gastro-oesophageal reflux disease (GERD) patients with regurgitation",
+          "journal": "Gut",
+          "year": 2020,
+          "citation_count": 33,
+          "first_author": "B. Rogers"
+        },
+        {
+          "pmid": "34270955",
+          "doi": "10.1053/j.gastro.2021.07.004",
+          "url": "https://www.semanticscholar.org/paper/517ff0c25f412ff915ff622594821280d529c073",
+          "title": "VALUE OF PH-IMPEDANCE MONITORING PERFORMED 'ON' BID PROTON PUMP INHIBITOR THERAPY TO IDENTIFY NEED FOR ESCALATION OF REFLUX MANAGEMENT.",
+          "journal": "Gastroenterology",
+          "year": 2021,
+          "citation_count": 32,
+          "first_author": "C. Gyawali"
+        },
+        {
+          "pmid": "39269391",
+          "doi": "10.1053/j.gastro.2024.06.038",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39269391/",
+          "title": "AGA Clinical Practice Update on Integrating Potassium-Competitive Acid Blockers Into Clinical Practice: Expert Review.",
+          "journal": "Gastroenterology",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Amit Patel"
+        },
+        {
+          "pmid": "40679455",
+          "doi": "10.1053/j.gastro.2025.05.011",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40679455/",
+          "title": "AGA Clinical Practice Update on Incorporating Functional Lumen Imaging Probe Into Esophageal Clinical Practice: Expert Review.",
+          "journal": "Gastroenterology",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Anh D Nguyen"
+        },
+        {
+          "pmid": "33849942",
+          "doi": "10.1136/gutjnl-2020-321811",
+          "url": "https://www.semanticscholar.org/paper/1cfdebc8f61e25735223370b7cb418c664842111",
+          "title": "Endoscopic full-thickness plication for the treatment of PPI-dependent GERD: results from a randomised, sham controlled trial",
+          "journal": "Gut",
+          "year": 2021,
+          "citation_count": 33,
+          "first_author": "R. Kalapala"
+        },
+        {
+          "pmid": "33351048",
+          "doi": "10.1001/jama.2020.21360",
+          "url": "https://www.semanticscholar.org/paper/d7bef99f86990c433a645abcd549597bd99585e1",
+          "title": "Gastroesophageal Reflux Disease: A Review.",
+          "journal": "JAMA",
+          "year": 2020,
+          "citation_count": 198,
+          "first_author": "J. Maret-Ouda"
+        },
+        {
+          "pmid": "29437910",
+          "doi": "10.1136/gutjnl-2017-314722",
+          "url": "https://www.semanticscholar.org/paper/fa3e6727110e5c27b17d54ab3614e5edb8d7cea5",
+          "title": "Modern diagnosis of GERD: the Lyon Consensus",
+          "journal": "Gut",
+          "year": 2018,
+          "citation_count": 1082,
+          "first_author": "C. Gyawali"
+        },
+        {
+          "pmid": "19136523",
+          "doi": "10.1136/gut.2007.145581",
+          "url": "https://www.semanticscholar.org/paper/aa8137b86a622c6d0d869357fa37ed0b3904f6c2",
+          "title": "Management of heartburn not responding to proton pump inhibitors",
+          "journal": "Gut",
+          "year": 2009,
+          "citation_count": 323,
+          "first_author": "R. Fass"
+        },
+        {
+          "pmid": "32949568",
+          "doi": "10.1053/j.gastro.2020.09.013",
+          "url": "https://www.semanticscholar.org/paper/4efb1af78c536664d43e574ef0769041ac23abd9",
+          "title": "AMBULATORY REFLUX MONITORING GUIDES PROTON PUMP INHIBITOR DISCONTINUATION IN PATIENTS WITH GASTROESOPHAGEAL REFLUX SYMPTOMS: A CLINICAL TRIAL.",
+          "journal": "Gastroenterology",
+          "year": 2020,
+          "citation_count": 47,
+          "first_author": "R. Yadlapati"
+        },
+        {
+          "pmid": "39740235",
+          "doi": "10.1111/apt.18420",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39740235/",
+          "title": "Management of Patients With Refractory Reflux-Like Symptoms Despite Proton Pump Inhibitor Therapy: Evidence-Based Consensus Statements.",
+          "journal": "Alimentary pharmacology & therapeutics",
+          "year": 2025,
+          "citation_count": 4,
+          "first_author": "David Armstrong"
+        },
+        {
+          "pmid": "32691466",
+          "doi": "10.1111/joim.13148",
+          "url": "https://www.semanticscholar.org/paper/d2dec2955a335ccc0d0184855d69fd77dac7a468",
+          "title": "Optimal management of severe symptomatic gastroesophageal reflux disease",
+          "journal": "Journal of Internal Medicine",
+          "year": 2020,
+          "citation_count": 28,
+          "first_author": "Nicholas J. Talley"
+        },
+        {
+          "pmid": "39874231",
+          "doi": "10.1136/ard-2024-226430",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39874231/",
+          "title": "EULAR recommendations for the treatment of systemic sclerosis: 2023 update.",
+          "journal": "Annals of the rheumatic diseases",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Francesco Del Galdo"
+        },
+        {
+          "pmid": "32694175",
+          "doi": "10.1136/gutjnl-2020-321786",
+          "url": "https://www.semanticscholar.org/paper/e88a5337b22bb6e1f8530613fd7d689f718be46d",
+          "title": "Regurgitation matters",
+          "journal": "Gut",
+          "year": 2020,
+          "citation_count": 1,
+          "first_author": "P. Kahrilas"
+        },
+        {
+          "pmid": "41125322",
+          "doi": "10.1053/j.gastro.2025.09.012",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41125322/",
+          "title": "AGA Clinical Practice Guideline on Surveillance of Barrett's Esophagus.",
+          "journal": "Gastroenterology",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Sachin Wani"
+        },
+        {
+          "pmid": "32272249",
+          "doi": "10.1016/j.cgh.2020.03.063",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32272249/",
+          "title": "Identification of Different Phenotypes of Esophageal Reflux Hypersensitivity and Implications for Treatment.",
+          "journal": "Clinical gastroenterology and hepatology",
+          "year": 2021,
+          "citation_count": 39,
+          "first_author": "Akinari Sawada"
+        },
+        {
+          "pmid": "35183361",
+          "doi": "10.1053/j.gastro.2021.12.247",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35183361/",
+          "title": "AGA Clinical Practice Update on De-Prescribing of Proton Pump Inhibitors: Expert Review.",
+          "journal": "Gastroenterology",
+          "year": 2022,
+          "citation_count": null,
+          "first_author": "Laura E Targownik"
+        },
+        {
+          "pmid": "34376517",
+          "doi": "10.1136/gutjnl-2021-325531",
+          "url": "https://www.semanticscholar.org/paper/bb5a1c66da2a964898bb60935c48f1689fa1b9e4",
+          "title": "Application of Lyon Consensus criteria for GORD diagnosis: evaluation of conventional and new impedance-pH parameters",
+          "journal": "Gut",
+          "year": 2021,
+          "citation_count": 44,
+          "first_author": "L. Frazzoni"
+        },
+        {
+          "pmid": "31518717",
+          "doi": "10.1016/j.cgh.2019.08.056",
+          "url": "https://www.semanticscholar.org/paper/2634d6cb9714b0a7e6d3111c6347d1f65fbe2d47",
+          "title": "Magnetic Sphincter Augmentation Superior to Proton Pump Inhibitors for Regurgitation in a 1-year Randomized Trial.",
+          "journal": "Clinical gastroenterology and hepatology",
+          "year": 2020,
+          "citation_count": 55,
+          "first_author": "R. Bell"
+        },
+        {
+          "pmid": "23425164",
+          "doi": "10.1056/NEJMoa1205544",
+          "url": "https://www.semanticscholar.org/paper/c6370c99d6bcc2275b903e47199d16369eb1069b",
+          "title": "Esophageal sphincter device for gastroesophageal reflux disease.",
+          "journal": "The New England journal of medicine",
+          "year": 2013,
+          "citation_count": 195,
+          "first_author": "R. Ganz"
+        },
+        {
+          "pmid": "33608420",
+          "doi": "10.1136/gutjnl-2021-324237",
+          "url": "https://www.semanticscholar.org/paper/3688e82f03bf570f467ed53fc581c371acfc5b76",
+          "title": "Diagnosis of GORD: is the ‘grey area’ expanding?",
+          "journal": "Gut",
+          "year": 2021,
+          "citation_count": 0,
+          "first_author": "F. Zerbib"
+        },
+        {
+          "pmid": "31866243",
+          "doi": "10.1053/j.gastro.2019.12.014",
+          "url": "https://www.semanticscholar.org/paper/3f83e407f890aee0daf43297262eddb761185f8f",
+          "title": "Prevalence of Gastroesophageal Reflux Disease and Proton Pump Inhibitor-Refractory Symptoms.",
+          "journal": "Gastroenterology",
+          "year": 2019,
+          "citation_count": 150,
+          "first_author": "Sean D. Delshad"
+        },
+        {
+          "pmid": "40383216",
+          "doi": "10.1016/j.cgh.2025.02.032",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40383216/",
+          "title": "pH Impedance Monitoring on Proton Pump Inhibitor Therapy Impacts Management Decisions in Proven GERD but not in Unproven GERD.",
+          "journal": "Clinical gastroenterology and hepatology",
+          "year": 2025,
+          "citation_count": 0,
+          "first_author": "C Prakash Gyawali"
+        },
+        {
+          "pmid": "30170117",
+          "doi": "10.1053/j.gastro.2018.08.038",
+          "url": "https://www.semanticscholar.org/paper/615525026f4c7b32062b9f98106e5655e56952cc",
+          "title": "Model to Select On-Therapy vs Off-Therapy Tests for Patients With Refractory Esophageal or Extraesophageal Symptoms.",
+          "journal": "Gastroenterology",
+          "year": 2018,
+          "citation_count": 24,
+          "first_author": "D. Patel"
+        },
+        {
+          "pmid": "28257716",
+          "doi": "10.1053/j.gastro.2017.01.031",
+          "url": "https://www.semanticscholar.org/paper/11fa3e684d0fa1806d05c44431e4609ae74b9f08",
+          "title": "The Risks and Benefits of Long-term Use of Proton Pump Inhibitors: Expert Review and Best Practice Advice From the American Gastroenterological Association.",
+          "journal": "Gastroenterology",
+          "year": 2017,
+          "citation_count": 655,
+          "first_author": "D. Freedberg"
+        },
+        {
+          "pmid": "37683879",
+          "doi": "10.1016/j.cgh.2023.08.026",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37683879/",
+          "title": "Optimizing the Management Algorithm for Heartburn in General Gastroenterology: Cost-Effectiveness and Cost-Minimization Analysis.",
+          "journal": "Clinical gastroenterology and hepatology",
+          "year": 2024,
+          "citation_count": 6,
+          "first_author": "Eric D Shah"
+        }
+      ]
+    },
+    "datasetName": "vera-answers-gerd-refractory-sample",
+    "output": "**First, confirm true refractory GERD before escalating therapy**—the VA RCT (NEJM, 2019, n=366) found that systematic workup excluded 99/288 referred patients as having **functional heartburn** (not true GERD), and only a minority had truly refractory, reflux-related disease [doi: 10.1056/NEJMoa1811424].\n\n<guideline>\nThe 2025 International Working Group consensus recommends against increasing PPI dose beyond 8 weeks of BID therapy and against antireflux procedures without objectively confirmed GERD; instead, perform endoscopy, ambulatory reflux testing, and esophageal manometry to phenotype the patient before escalation. [doi: 10.1111/apt.18420]\n</guideline>\n\n---\n\n## Step 1: Diagnostic Workup (Required Before Any Escalation)\n\n| Test | Purpose | Key Thresholds/Findings | Clinical Evidence |\n|------|---------|------------------------|-------------------|\n| **Upper endoscopy** | Rule out erosive esophagitis (LA C/D), Barrett's, EoE, stricture | LA C/D = conclusive GERD; LA A/B = supportive | Lyon Consensus 2.0 [doi: 10.1136/gutjnl-2023-330616] |\n| **Ambulatory pH monitoring OFF PPI** (wireless 96h preferred) | Document true acid burden in unproven GERD | AET >6% conclusive; <4% refutes GERD; 4–6% inconclusive | [doi: 10.1136/gutjnl-2023-330616]; [doi: 10.1016/j.cgh.2025.02.032] |\n| **pH-impedance ON BID PPI** | Only if GERD already proven (prior LA C/D, Barrett's, AET >6% off PPI) — identifies persistent pathological reflux on therapy | AET >4% + >80 reflux episodes on PPI predicts need for invasive management (85% improve with surgery) | [doi: 10.1053/j.gastro.2021.07.004] |\n| **High-resolution esophageal manometry** | Rule out major motility disorder (achalasia, absent contractility) before any antireflux procedure | Mandatory pre-op per ICARUS guidelines | [doi: 10.1136/gutjnl-2019-318260] |\n\n- **Functional heartburn** is diagnosed when AET is normal (<4%), reflux-symptom association is absent, and manometry excludes motility disorders — **antireflux surgery is contraindicated** in this phenotype [doi: 10.1053/j.gastro.2020.01.034]\n- **Reflux hypersensitivity**: normal AET but positive symptom-reflux association; treat with neuromodulators, not surgery [doi: 10.1016/j.cgh.2020.03.063]\n- Rule out behavioral contributors: ~49% of reflux hypersensitivity patients have supragastric belching or rumination [doi: 10.1016/j.cgh.2020.03.063]\n\n---\n\n## Step 2: Phenotype-Guided Management\n\n### A. Confirmed Pathological Reflux ON BID PPI (Truly Refractory GERD)\n\n- **Laparoscopic Nissen fundoplication (LNF)**: Treatment success 67% vs. 28% with active medical therapy and 12% with placebo (VA RCT, n=78, P=0.007) [doi: 10.1056/NEJMoa1811424]. LNF provides superior LES pressure restoration and AET normalization versus TIF or PPIs (network meta-analysis, 7 RCTs, n=1128) [doi: 10.1053/j.gastro.2017.12.021]\n- **Magnetic sphincter augmentation (MSA/LINX)**: Superior to BID PPI for regurgitation-predominant refractory GERD — 89% vs. 10% resolution of moderate-to-severe regurgitation in RCT (n=152) [doi: 10.1016/j.cgh.2019.08.056]; MSA is favored when pH-impedance shows >80 reflux episodes, which predicts favorable surgical response [doi: 10.1136/gutjnl-2020-321786]\n- **Potassium-competitive acid blockers (P-CABs, e.g., vonoprazan)**: May be used in selected patients with documented acid-related reflux failing BID PPI, particularly LA C/D erosive esophagitis [doi: 10.1053/j.gastro.2024.06.038]\n\n<drug>\nVonoprazan (P-CAB) may be considered in patients with confirmed acid-related refractory GERD failing BID PPIs, particularly with severe erosive esophagitis (LA C/D), though superiority over double-dose PPIs lacks direct RCT confirmation and cost is substantially higher in the US (ASHP Drug Compendium [Vonoprazan; Potassium-Competitive Acid Blockers]).\n</drug>\n\n- **Baclofen** (TLESR inhibitor): Modest benefit added to PPI in truly reflux-related symptoms; was inferior to surgery (28% success vs. 67%) [doi: 10.1056/NEJMoa1811424]; limited role per 2025 consensus [doi: 10.1111/apt.18420]\n\n### B. Functional Heartburn / Reflux Hypersensitivity (Normal AET on Monitoring)\n\n- **Neuromodulators**: TCAs (desipramine, imipramine), SSRIs, or low-dose antidepressants — first-line; PPIs and antireflux procedures have no benefit [doi: 10.1053/j.gastro.2020.01.034]\n- Psychological interventions (CBT, hypnotherapy) as adjunctive therapy [doi: 10.1053/j.gastro.2020.01.034]\n- **Do NOT refer for surgery** — absolute contraindication in functional heartburn [doi: 10.1053/j.gastro.2020.01.034]\n\n---\n\n**Bottom line algorithm**: Endoscopy → if negative for erosive disease, perform ambulatory pH **off PPI** → if AET normal (<4%): functional heartburn → neuromodulators; if AET >6% (or borderline with positive symptom association): confirmed refractory GERD → manometry → LNF or MSA per anatomy/phenotype, with P-CAB as pharmacologic bridge if surgery declined."
+  },
+  {
+    "id": "3a1f8e6b-afib-rvr-2026-04-27",
+    "input": {
+      "question": "New-onset AFib with RVR in a healthy 65F",
+      "conversationHistory": [],
+      "hasConversationHistory": false
+    },
+    "metadata": {
+      "questionType": "Therapy",
+      "scope": "internal",
+      "references": [
+        {
+          "pmid": "39320289",
+          "doi": "10.1016/j.jacc.2024.06.013",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39320289/",
+          "title": "2024 AHA/ACC/ACS/ASNC/HRS/SCA/SCCT/SCMR/SVM Guideline for Perioperative Cardiovascular Management for Noncardiac Surgery: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Annemarie Thompson"
+        },
+        {
+          "pmid": "41122884",
+          "doi": "10.1161/CIR.0000000000001376",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41122884/",
+          "title": "Part 9: Adult Advanced Life Support: 2025 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care.",
+          "journal": "Circulation",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Jane G Wigginton"
+        },
+        {
+          "pmid": "41369617",
+          "doi": "10.1016/j.jacc.2025.10.018",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41369617/",
+          "title": "Diagnosis and Management of Cardiovascular Adverse Effects of Targeted Oncology Therapies: Bruton's Tyrosine Kinase, Immune Checkpoint, and Vascular Endothelial Growth Factor Inhibitors: 2025 ACC Concise Clinical Guidance: A Report of the American College of Cardiology Solution Set Oversight Committee.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Sarju Ganatra"
+        },
+        {
+          "pmid": "42018465",
+          "doi": "10.1016/j.jacc.2026.01.074",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/42018465/",
+          "title": "2026 ACC/AHA/HRS Advanced Training Statement on Clinical Cardiac Electrophysiology (Revision of the 2015 ACC/AHA/HRS Advanced Training Statement on Clinical Cardiac Electrophysiology): A Report of the ACC Competency Management Committee.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2026,
+          "citation_count": null,
+          "first_author": "José A Joglar"
+        },
+        {
+          "pmid": "39210723",
+          "doi": "10.1093/eurheartj/ehae176",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39210723/",
+          "title": "2024 ESC Guidelines for the management of atrial fibrillation developed in collaboration with the European Association for Cardio-Thoracic Surgery (EACTS).",
+          "journal": "European heart journal",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Isabelle C Van Gelder"
+        },
+        {
+          "pmid": "38033089",
+          "doi": "10.1161/CIR.0000000000001193",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38033089/",
+          "title": "2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Circulation",
+          "year": 2023,
+          "citation_count": null,
+          "first_author": "José A Joglar"
+        },
+        {
+          "pmid": "38727647",
+          "doi": "10.1016/j.jacc.2024.02.014",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38727647/",
+          "title": "2024 AHA/ACC/AMSSM/HRS/PACES/SCMR Guideline for the Management of Hypertrophic Cardiomyopathy: A Report of the American Heart Association/American College of Cardiology Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Steve R Ommen"
+        },
+        {
+          "pmid": "38043043",
+          "doi": "10.1016/j.jacc.2023.08.017",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38043043/",
+          "title": "2023 ACC/AHA/ACCP/HRS Guideline for the Diagnosis and Management of Atrial Fibrillation: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2023,
+          "citation_count": null,
+          "first_author": "José A Joglar"
+        },
+        {
+          "pmid": "35379503",
+          "doi": "10.1016/j.jacc.2021.12.012",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35379503/",
+          "title": "2022 AHA/ACC/HFSA Guideline for the Management of Heart Failure: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2022,
+          "citation_count": null,
+          "first_author": "Paul A Heidenreich"
+        },
+        {
+          "pmid": "36697326",
+          "doi": "10.1016/j.jacc.2022.11.022",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36697326/",
+          "title": "2023 ACC Expert Consensus Decision Pathway on Comprehensive Multidisciplinary Care for the Patient With Cardiac Amyloidosis: A Report of the American College of Cardiology Solution Set Oversight Committee.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2023,
+          "citation_count": null,
+          "first_author": "Michelle M Kittleson"
+        },
+        {
+          "pmid": "30883054",
+          "doi": "10.1056/NEJMoa1900353",
+          "url": "https://www.semanticscholar.org/paper/33ddc1aca40e2fed49aa7cb6ec4c0f359cfe4e18",
+          "title": "Early or Delayed Cardioversion in Recent‐Onset Atrial Fibrillation",
+          "journal": "The New England Journal of Medicine",
+          "year": 2019,
+          "citation_count": 136,
+          "first_author": "N. Pluymaekers"
+        },
+        {
+          "pmid": "30703431",
+          "doi": "10.1016/j.jacc.2019.01.011",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30703431/",
+          "title": "2019 AHA/ACC/HRS Focused Update of the 2014 AHA/ACC/HRS Guideline for the Management of Patients With Atrial Fibrillation: A Report of the American College of Cardiology/American Heart Association Task Force on Clinical Practice Guidelines and the Heart Rhythm Society.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2019,
+          "citation_count": null,
+          "first_author": "Craig T January"
+        },
+        {
+          "pmid": "24682348",
+          "doi": "10.1161/CIR.0000000000000040",
+          "url": "https://www.semanticscholar.org/paper/8a9f01e461862bc4b9aeb282a1e8a9b082af1c00",
+          "title": "2014 AHA/ACC/HRS guideline for the management of patients with atrial fibrillation: executive summary: a report of the American College of Cardiology/American Heart Association Task Force on practice guidelines and the Heart Rhythm Society.",
+          "journal": "Circulation",
+          "year": 2014,
+          "citation_count": 2382,
+          "first_author": "C. January"
+        },
+        {
+          "pmid": "40873195",
+          "doi": "10.1093/eurheartj/ehaf478",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40873195/",
+          "title": "Recent-onset atrial fibrillation: challenges and opportunities.",
+          "journal": "European heart journal",
+          "year": 2025,
+          "citation_count": 0,
+          "first_author": "Emma Svennberg"
+        },
+        {
+          "pmid": "38490803",
+          "doi": "10.1016/j.kint.2023.10.018",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38490803/",
+          "title": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease.",
+          "journal": "Kidney international",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": null
+        },
+        {
+          "pmid": "10731399",
+          "doi": "10.1053/euhj.1999.1767",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/10731399/",
+          "title": "Systematic review of the management of atrial fibrillation in patients with heart failure.",
+          "journal": "European heart journal",
+          "year": 2000,
+          "citation_count": 157,
+          "first_author": "A U Khand"
+        },
+        {
+          "pmid": "35076659",
+          "doi": "10.1001/jama.2021.23732",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35076659/",
+          "title": "Screening for Atrial Fibrillation: US Preventive Services Task Force Recommendation Statement.",
+          "journal": "JAMA",
+          "year": 2022,
+          "citation_count": null,
+          "first_author": "Karina W Davidson"
+        }
+      ]
+    },
+    "datasetName": "vera-answers-afib-rvr-sample",
+    "output": "<guideline>\nThe 2023 ACC/AHA/ACCP/HRS Guideline recommends IV nondihydropyridine calcium channel blockers (diltiazem) or beta-blockers for acute rate control in hemodynamically stable AF with RVR; electrical cardioversion for unstable patients; and anticoagulation guided by CHA2DS2-VASc score. [doi: 10.1161/CIR.0000000000001193]\n</guideline>\n\n**Step 1 — Assess Hemodynamic Stability First**\n- **Hemodynamically unstable** (hypotension, active ischemia, severe HF): → immediate synchronized **DC cardioversion**\n- **Hemodynamically stable** (as in this healthy patient): proceed with rate control ± elective cardioversion\n\n**Step 2 — Acute Rate Control (target HR <110 bpm initially)**\n\n| Agent | IV Dose | Notes | Clinical Evidence |\n|---|---|---|---|\n| **Diltiazem** (preferred) | 0.25 mg/kg over 2 min; repeat 0.35 mg/kg; then 5–15 mg/h infusion | First-line; faster rate control than metoprolol or digoxin | Meta-analysis of RCTs: diltiazem superior to metoprolol for rate control [doi: 10.1007/s40256-023-00615-3] |\n| **Metoprolol** | 2.5–5 mg IV bolus over 2 min; up to 3 doses (15 mg max) | Reasonable alternative | Systematic reviews show comparable efficacy to diltiazem [doi: 10.1161/CIR.0000000000001376] |\n| **Digoxin** | Avoid as monotherapy acutely | Slow onset; inferior for acute rate control | RCT (n=150): diltiazem achieved rate control faster, shorter LOS [doi: 10.1161/CIR.0000000000001193] |\n| **IV Magnesium** | 2–4 g IV adjunct | Adjunct when rate control is difficult | Meta-analysis 6 RCTs (n=745): rate control 63% vs 40% vs placebo (OR 2.49) [doi: 10.1161/CIR.0000000000001193] |\n\n**Step 3 — Rhythm Control Decision (onset <48 hours)**\n\n- **Estimate AF duration**: if clearly **<48 hours**, cardioversion can be performed safely without TEE (low thromboembolic risk if anticoagulated acutely)\n- **Wait-and-see is a valid alternative**: RACE 7 ACWAS RCT (n=437, NEJM 2019) showed spontaneous conversion in **69% within 48 hours** with rate-control-only approach; sinus rhythm at 4 weeks was non-inferior to immediate cardioversion (91% vs 94%; difference −2.9%, 95% CI −8.2 to 2.2) [doi: 10.1056/NEJMoa1900353]\n- If cardioverting pharmacologically: **flecainide** (\"pill-in-pocket\") or **ibutilide** IV are options in structurally normal hearts; electrical cardioversion is more rapid and efficacious [doi: 10.1161/CIR.0000000000001193]\n- **If AF duration unknown or >48h**: anticoagulate ≥3 weeks before elective cardioversion OR perform TEE to exclude LAA thrombus\n\n**Step 4 — Anticoagulation**\n\nThis 65F has a **CHA2DS2-VASc = 2** (age 65–74 = 1 pt; female sex = 1 pt) → **anticoagulation is recommended** [doi: 10.1161/CIR.0000000000001193]\n\n- **DOACs preferred** over warfarin (apixaban, rivaroxaban, dabigatran, edoxaban)\n- Initiate **immediately** (even before cardioversion if planning early rhythm control)\n- Continue anticoagulation **regardless of cardioversion success**, based on CHA2DS2-VASc (not rhythm)\n\n**Step 5 — Workup**\n- 12-lead ECG, TTE (assess LVEF, LA size, valvular disease), TSH, BMP, CBC, Mg²⁺ [doi: 10.1016/j.kint.2023.10.018]\n- Rule out precipitants: infection, PE, electrolyte disturbance, hyperthyroidism\n\n**Step 6 — Disposition & Follow-up**\n- If rate-controlled and planning wait-and-see: can discharge with oral rate-control agent + DOAC + close follow-up in 24–48h\n- If cardioverting: monitor post-cardioversion, continue anticoagulation ≥4 weeks minimum\n- Long-term: rhythm control (early AF ablation or AAD) improves outcomes in recently diagnosed AF per EAST-AFNET 4 [doi: 10.1161/CIR.0000000000001193]; discuss with patient"
+  },
+  {
+    "id": "6f4e2a8b-stroke-secondary-2026-04-27",
+    "input": {
+      "question": "What are the latest guidelines for secondary stroke prevention",
+      "conversationHistory": [],
+      "hasConversationHistory": false
+    },
+    "output": "<guideline>For patients with prior ischemic stroke or TIA, implement comprehensive secondary prevention with (1) antithrombotic therapy tailored to mechanism (cardioembolic → anticoagulation; noncardioembolic → antiplatelet; short-term DAPT only in selected early minor stroke/high-risk TIA or severe symptomatic intracranial stenosis), (2) aggressive vascular risk factor control including blood pressure goal <130/80 mm Hg and high-intensity lipid lowering targeting LDL-C <70 mg/dL (1.8 mmol/L), and (3) evaluation/treatment of the specific stroke cause (eg, carotid stenosis revascularization when indicated) plus lifestyle modification. [doi: 10.1161/STR.0000000000000382] [doi: 10.1016/j.jacc.2025.05.007] [doi: 10.1177/23969873221100032] </guideline>\n\n## Key “latest” actionable elements (with supporting evidence from the provided sources)\n\n### 1) Blood pressure targets and agents\n- **Outpatient BP goal: <130/80 mm Hg for most neurologically stable patients with prior ischemic stroke/TIA (and also ICH) and hypertension**; consider treating even if no prior HTN but average BP ≥130/80. [doi: 10.1016/j.jacc.2025.05.007]  \n- **Preferred antihypertensive classes for recurrent stroke risk reduction:** thiazide-type diuretic, ACE inhibitor, or ARB. [doi: 10.1016/j.jacc.2025.05.007]  \n- **Evidence informing the target:** JAMA Neurology RCT + meta-analysis (Japan; 1,263 analyzed; mean follow-up 3.9 years) showed nonsignificant HR 0.73 (p=0.15) for intensive <120/80 vs <140/90, but pooled RCT meta-analysis RR 0.78 (p=0.02) supports lower targets consistent with <130/80 in secondary prevention. [doi: 10.1001/jamaneurol.2019.2167]\n\n### 2) Antiplatelet therapy for noncardioembolic ischemic stroke/TIA\n- **Short-course DAPT in selected patients with minor ischemic stroke or high-risk TIA when started early:**\n  - INSPIRES (NEJM 2023; RCT; 6,100 patients; start ≤72h): clopidogrel+aspirin reduced new stroke at 90d (7.3% vs 9.2%; HR 0.79; p=0.008) with higher moderate–severe bleeding (0.9% vs 0.4%; HR 2.08; p=0.03). [doi: 10.1056/NEJMoa2309137]  \n  - POINT (NEJM 2018; RCT; 4,881 patients): reduced major ischemic events (5.0% vs 6.5%; HR 0.75; p=0.02) with increased major hemorrhage (0.9% vs 0.4%; HR 2.32; p=0.02) over 90 days—benefit concentrated early, supporting limited-duration strategies. [doi: 10.1056/NEJMoa1800410]\n- **Avoid prolonged aspirin+clopidogrel beyond 90 days** for long-term secondary prevention after ischemic stroke/TIA (unless another indication), per ESO long-term pharmacologic guidance. [doi: 10.1177/23969873221100032]\n- **Symptomatic severe intracranial atherosclerotic stenosis (70–99%):** aspirin 325 mg daily long-term; add clopidogrel 75 mg daily for up to 90 days if low hemorrhagic transformation risk. [doi: 10.1212/WNL.0000000000200030]\n\n### 3) Anticoagulation and rhythm monitoring (cardioembolic prevention)\n- **If atrial fibrillation (AF) is present, anticoagulate per AF guidelines**; ensure adequate rhythm monitoring after stroke when etiology is uncertain/ESUS (ACC 2024 ECDP focused on arrhythmia monitoring post-stroke). [doi: 10.1016/j.jacc.2024.10.100]  \n- **Do not use DOACs empirically for ESUS** (ESO recommendation for long-term secondary prevention after ischemic stroke/TIA). [doi: 10.1177/23969873221100032]\n\n### 4) Lipid management targets (atherosclerotic risk reduction)\n- **High-intensity statin-based therapy and LDL-C target <70 mg/dL (1.8 mmol/L)** for long-term secondary prevention after ischemic stroke/TIA (ESO) and consistent with AHA/ASA secondary prevention summaries for primary care. [doi: 10.1177/23969873221100032] [doi: 10.1161/STR.0000000000000382]  \n- **Evidence base:** JAMA Neurology 2022 meta-analysis (11 RCTs; 20,163 patients with stroke) found recurrent stroke 8% with more intensive vs 9% with less intensive LDL-lowering (significant), supporting intensive LDL reduction particularly in ischemic stroke with atherosclerosis. [doi: 10.1001/jamaneurol.2021.5578]\n\n### 5) Carotid/intracranial atherosclerotic disease interventions (cause-specific prevention)\n- **Ensure carotid imaging after anterior-circulation events and pursue cause-specific therapy (including revascularization when indicated)** as part of secondary prevention care pathways (AHA/ASA primary care statement). [doi: 10.1161/STR.0000000000000382]  \n- **Symptomatic intracranial stenosis:** medical therapy emphasized; **do not use intracranial angioplasty/stenting as initial therapy** for moderate (50–69%) or as initial for severe (70–99%) outside trials. [doi: 10.1212/WNL.0000000000200030]\n\n### 6) Diabetes and other vascular risk factor targets (as summarized in AHA/ASA primary-care secondary prevention statement)\n- **HbA1c goal ≤7% for most patients with diabetes** as part of vascular risk reduction after stroke. [doi: 10.1161/STR.0000000000000382]\n\n### 7) Lifestyle and systems of care (implementation)\n- **Structured lifestyle optimization** (physical activity, weight management, smoking cessation, avoid excess alcohol/substances; Mediterranean-type diet/sodium restriction) and organized post-stroke follow-up are core class 1 secondary prevention components in AHA/ASA implementation for office-based care. [doi: 10.1161/STR.0000000000000382]",
+    "metadata": {
+      "questionType": "Guideline",
+      "scope": "internal",
+      "references": [
+        {
+          "pmid": "40815242",
+          "doi": "10.1016/j.jacc.2025.05.007",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40815242/",
+          "title": "2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Daniel W Jones"
+        },
+        {
+          "pmid": "40811497",
+          "doi": "10.1161/CIR.0000000000001356",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40811497/",
+          "title": "2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation and Management of High Blood Pressure in Adults: A Report of the American College of Cardiology/American Heart Association Joint Committee on Clinical Practice Guidelines.",
+          "journal": "Circulation",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Daniel W Jones"
+        },
+        {
+          "pmid": "16534023",
+          "doi": "10.1161/01.STR.0000199147.30016.74",
+          "url": "https://www.semanticscholar.org/paper/de700ea00276174cb5a2ee804b1a6327cd96668b",
+          "title": "Guidelines for prevention of stroke in patients with ischemic stroke or transient ischemic attack: a statement for healthcare professionals from the American Heart Association/American Stroke Association Council on Stroke",
+          "journal": "Circulation",
+          "year": 2006,
+          "citation_count": 854,
+          "first_author": "R. L. Sacco"
+        },
+        {
+          "pmid": "38493389",
+          "doi": "10.1016/j.jacc.2023.12.006",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38493389/",
+          "title": "2024 ACC/AHA Clinical Performance and Quality Measures for Adults With Valvular and Structural Heart Disease.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Hani Jneid"
+        },
+        {
+          "pmid": "39692645",
+          "doi": "10.1016/j.jacc.2024.10.100",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39692645/",
+          "title": "2024 ACC Expert Consensus Decision Pathway on Practical Approaches for Arrhythmia Monitoring After Stroke.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Michael T Spooner"
+        },
+        {
+          "pmid": "31355878",
+          "doi": "10.1001/jamaneurol.2019.2167",
+          "url": "https://www.semanticscholar.org/paper/a1ed5adda9dd8832be18381229067003ceec6410",
+          "title": "Effect of Standard vs Intensive Blood Pressure Control on the Risk of Recurrent Stroke: A Randomized Clinical Trial and Meta-analysis.",
+          "journal": "JAMA neurology",
+          "year": 2019,
+          "citation_count": 121,
+          "first_author": "K. Kitagawa"
+        },
+        {
+          "pmid": "39226381",
+          "doi": "10.1161/CIRCULATIONAHA.124.069651",
+          "url": "https://www.semanticscholar.org/paper/c13373b720dd0beef8bcca400beb4dad40fa2b7e",
+          "title": "Comparison of American and European Guideline Recommendations for Diagnostic Workup and Secondary Prevention of Ischemic Stroke and Transient Ischemic Attack.",
+          "journal": "Circulation",
+          "year": 2024,
+          "citation_count": 0,
+          "first_author": "Maxim J H L Mulder"
+        },
+        {
+          "pmid": "38752899",
+          "doi": "10.1016/j.jacc.2024.02.013",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38752899/",
+          "title": "2024 ACC/AHA/AACVPR/APMA/ABC/SCAI/SVM/SVN/SVS/SIR/VESS Guideline for the Management of Lower Extremity Peripheral Artery Disease.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Heather L Gornik"
+        },
+        {
+          "pmid": "38743805",
+          "doi": "10.1161/CIR.0000000000001251",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38743805/",
+          "title": "2024 ACC/AHA/AACVPR/APMA/ABC/SCAI/SVM/SVN/SVS/SIR/VESS Guideline for the Management of Lower Extremity Peripheral Artery Disease.",
+          "journal": "Circulation",
+          "year": 2024,
+          "citation_count": null,
+          "first_author": "Heather L Gornik"
+        },
+        {
+          "pmid": "38157499",
+          "doi": "10.1056/NEJMoa2309137",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38157499/",
+          "title": "Dual Antiplatelet Treatment up to 72 Hours after Ischemic Stroke.",
+          "journal": "The New England journal of medicine",
+          "year": 2023,
+          "citation_count": 49,
+          "first_author": "Ying Gao"
+        },
+        {
+          "pmid": "33961868",
+          "doi": "10.1016/j.kint.2021.04.029",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33961868/",
+          "title": "Central and peripheral arterial diseases in chronic kidney disease: conclusions from a Kidney Disease: Improving Global Outcomes (KDIGO) Controversies Conference.",
+          "journal": "Kidney international",
+          "year": 2021,
+          "citation_count": null,
+          "first_author": "Kirsten L Johansen"
+        },
+        {
+          "pmid": "38759664",
+          "doi": "10.1016/S0140-6736(24)00642-1",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38759664/",
+          "title": "Stroke.",
+          "journal": "Lancet (London, England)",
+          "year": 2024,
+          "citation_count": 123,
+          "first_author": "Nina A Hilkens"
+        },
+        {
+          "pmid": "35314513",
+          "doi": "10.1212/WNL.0000000000200030",
+          "url": "https://www.semanticscholar.org/paper/81a7f31e381cb2e1dc64822a93f2d34a1ba5c14f",
+          "title": "Stroke Prevention in Symptomatic Large Artery Intracranial Atherosclerosis Practice Advisory",
+          "journal": "Neurology",
+          "year": 2022,
+          "citation_count": 38,
+          "first_author": "T. Turan"
+        },
+        {
+          "pmid": "32716473",
+          "doi": "10.1001/jamaneurol.2020.2494",
+          "url": "https://www.semanticscholar.org/paper/8d9a2e887edcb11ad2fbf31637a0c72f4d6edf25",
+          "title": "New Horizons in Pharmacologic Therapy for Secondary Stroke Prevention.",
+          "journal": "JAMA neurology",
+          "year": 2020,
+          "citation_count": 22,
+          "first_author": "A. Katsanos"
+        },
+        {
+          "pmid": "40811516",
+          "doi": "10.1161/HYP.0000000000000249",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40811516/",
+          "title": "2025 AHA/ACC/AANP/AAPA/ABC/ACCP/ACPM/AGS/AMA/ASPC/NMA/PCNA/SGIM Guideline for the Prevention, Detection, Evaluation and Management of High Blood Pressure in Adults.",
+          "journal": "Hypertension",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Daniel W Jones"
+        },
+        {
+          "pmid": "27576775",
+          "doi": "10.1161/CIRCULATIONAHA.116.024637",
+          "url": "https://www.semanticscholar.org/paper/729ca98c037df68a4525cd0938d1c80149fb86ba",
+          "title": "Prevention of Stroke with Ticagrelor in Patients with Prior Myocardial Infarction: Insights from PEGASUS-TIMI 54.",
+          "journal": "Circulation",
+          "year": 2016,
+          "citation_count": 36,
+          "first_author": "Marc P. Bonaca"
+        },
+        {
+          "pmid": "20966421",
+          "doi": "10.1161/STR.0b013e3181f7d043",
+          "url": "https://www.semanticscholar.org/paper/a860368912b60593405988439d2917152de3c0ca",
+          "title": "Guidelines for the prevention of stroke in patients with stroke or transient ischemic attack: a guideline for healthcare professionals from the American Heart Association/American Stroke Association.",
+          "journal": "Stroke",
+          "year": 2011,
+          "citation_count": 1769,
+          "first_author": "K. Furie"
+        },
+        {
+          "pmid": "38753327",
+          "doi": "10.1001/jamanetworkopen.2024.11735",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38753327/",
+          "title": "Comparison of Dual Antiplatelet Therapies for Minor, Nondisabling, Acute Ischemic Stroke: A Bayesian Network Meta-Analysis.",
+          "journal": "JAMA network open",
+          "year": 2024,
+          "citation_count": 3,
+          "first_author": "Andy Lim"
+        },
+        {
+          "pmid": "33315494",
+          "doi": "10.1161/CIRCULATIONAHA.120.049768",
+          "url": "https://www.semanticscholar.org/paper/66a179bcd71ff2b45699b83ff6244e30ed68c9f2",
+          "title": "Stroke Prevention in Atrial Fibrillation: Looking Forward.",
+          "journal": "Circulation",
+          "year": 2018,
+          "citation_count": 47,
+          "first_author": "A. Katsanos"
+        },
+        {
+          "pmid": "36082250",
+          "doi": "10.1177/23969873221100032",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36082250/",
+          "title": "European Stroke Organisation (ESO) guideline on pharmacological interventions for long-term secondary prevention after ischaemic stroke or transient ischaemic attack.",
+          "journal": "European stroke journal",
+          "year": 2022,
+          "citation_count": 123,
+          "first_author": "Jesse Dawson"
+        },
+        {
+          "pmid": "35188949",
+          "doi": "10.1001/jamaneurol.2021.5578",
+          "url": "https://www.semanticscholar.org/paper/4729fc428318954817abb255d8e2a351164f0664",
+          "title": "Association Between Intensity of Low-Density Lipoprotein Cholesterol Reduction With Statin-Based Therapies and Secondary Stroke Prevention",
+          "journal": "JAMA Neurology",
+          "year": 2022,
+          "citation_count": 54,
+          "first_author": "Meng Lee"
+        },
+        {
+          "pmid": "33926204",
+          "doi": "10.1161/CIRCULATIONAHA.121.053782",
+          "url": "https://www.semanticscholar.org/paper/6477b0d55e5157d1e47eca311f6802f91b7b84eb",
+          "title": "Efficacy and Safety of Using Dual Versus Monotherapy Antiplatelet Agents in Secondary Stroke Prevention",
+          "journal": "Circulation",
+          "year": 2021,
+          "citation_count": 9,
+          "first_author": "G. Trifan"
+        },
+        {
+          "pmid": "29766750",
+          "doi": "10.1056/NEJMoa1800410",
+          "url": "https://www.semanticscholar.org/paper/86e6c451cbcec4d80d5c492724c5960255c7c2f3",
+          "title": "Clopidogrel and Aspirin in Acute Ischemic Stroke and High‐Risk TIA",
+          "journal": "The New England Journal of Medicine",
+          "year": 2018,
+          "citation_count": 849,
+          "first_author": "S. Johnston"
+        },
+        {
+          "pmid": "34261351",
+          "doi": "10.1161/STR.0000000000000382",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34261351/",
+          "title": "Primary Care of Adult Patients After Stroke: A Scientific Statement From the American Heart Association/American Stroke Association.",
+          "journal": "Stroke",
+          "year": 2021,
+          "citation_count": null,
+          "first_author": "Walter N Kernan"
+        },
+        {
+          "pmid": "30045912",
+          "doi": "10.1136/bmj.k2515",
+          "url": "https://www.semanticscholar.org/paper/43216f07cbccdcfde7912d6cb33bc5014ebd4ba0",
+          "title": "Patent foramen ovale closure, antiplatelet therapy or anticoagulation therapy alone for management of cryptogenic stroke? A clinical practice guideline",
+          "journal": "The BMJ",
+          "year": 2018,
+          "citation_count": 78,
+          "first_author": "T. Kuijpers"
+        },
+        {
+          "pmid": "39822128",
+          "doi": "10.1002/alz.14324",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39822128/",
+          "title": "Canadian Stroke Best Practice Recommendations: Vascular cognitive impairment, 7th edition practice guidelines update, 2024.",
+          "journal": "Alzheimer's & dementia",
+          "year": 2025,
+          "citation_count": null,
+          "first_author": "Richard H Swartz"
+        },
+        {
+          "pmid": "18322260",
+          "doi": "10.1161/STROKEAHA.107.189063",
+          "url": "https://www.semanticscholar.org/paper/db865b9134e398c009aca9a60d260fd204af5619",
+          "title": "Update to the AHA/ASA recommendations for the prevention of stroke in patients with stroke and transient ischemic attack.",
+          "journal": "Stroke",
+          "year": 2008,
+          "citation_count": 494,
+          "first_author": "R. Adams"
+        },
+        {
+          "pmid": "31395130",
+          "doi": "10.1016/j.jacc.2019.06.039",
+          "url": "https://www.semanticscholar.org/paper/52b9577b8c7479c4e6365a2b033f72bcd623c86a",
+          "title": "Antithrombotic Therapy to Prevent Recurrent Strokes in Ischemic Cerebrovascular Disease: JACC Scientific Expert Panel.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2019,
+          "citation_count": 49,
+          "first_author": "V. D. Del Brutto"
+        },
+        {
+          "pmid": "30802167",
+          "doi": "10.1161/CIRCULATIONAHA.118.036656",
+          "url": "https://www.semanticscholar.org/paper/9a06fcb3782509af6b4e8432e5585b571b0ff159",
+          "title": "Antithrombotic Therapy for Stroke Prevention.",
+          "journal": "Circulation",
+          "year": 2019,
+          "citation_count": 3,
+          "first_author": "G. Hankey"
+        },
+        {
+          "pmid": "37793752",
+          "doi": "10.1016/j.jacc.2023.07.025",
+          "url": "https://www.semanticscholar.org/paper/85c99a341a4b928421ad3e9eade22f0bba00817f",
+          "title": "Antithrombotic Therapy for Primary and Secondary Prevention of Ischemic Stroke: JACC State-of-the-Art Review.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2023,
+          "citation_count": 14,
+          "first_author": "A. Greco"
+        },
+        {
+          "pmid": "41707139",
+          "doi": "10.1056/NEJMcp2415601",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41707139/",
+          "title": "Secondary Prevention after Ischemic Stroke.",
+          "journal": "The New England journal of medicine",
+          "year": 2026,
+          "citation_count": null,
+          "first_author": "Karen L Furie"
+        },
+        {
+          "pmid": "38346308",
+          "doi": "10.7326/M23-3136",
+          "url": "https://www.semanticscholar.org/paper/a6de164a11eb5e4930aea5ecb67c5f5686f698d1",
+          "title": "How Would You Prevent Subsequent Strokes in This Patient? Grand Rounds Discussion From Beth Israel Deaconess Medical Center",
+          "journal": "Annals of Internal Medicine",
+          "year": 2024,
+          "citation_count": 0,
+          "first_author": "Zahir Kanjee"
+        },
+        {
+          "pmid": "29171361",
+          "doi": "10.1177/1747493017743062",
+          "url": "https://www.semanticscholar.org/paper/7f10f5dfeacfec11f15cae068e0afa41e9323e55",
+          "title": "Canadian stroke best practice recommendations: Secondary prevention of stroke, sixth edition practice guidelines, update 2017",
+          "journal": "International Journal of Stroke",
+          "year": 2018,
+          "citation_count": 171,
+          "first_author": "T. Wein"
+        },
+        {
+          "pmid": "33724327",
+          "doi": "10.1001/jama.2020.26867",
+          "url": "https://www.semanticscholar.org/paper/2511a8c0c725fe62d2de774205dc5dda51737f75",
+          "title": "Diagnosis and Management of Transient Ischemic Attack and Acute Ischemic Stroke: A Review.",
+          "journal": "JAMA",
+          "year": 2021,
+          "citation_count": 393,
+          "first_author": "S. Mendelson"
+        },
+        {
+          "pmid": "31132793",
+          "doi": "10.7326/M19-0365",
+          "url": "https://www.semanticscholar.org/paper/bb50ea49e70c4e2b16ddb0833f5d2156f056d1ec",
+          "title": "2018 Cholesterol Clinical Practice Guidelines: Synopsis of the 2018 American Heart Association/American College of Cardiology/Multisociety Cholesterol Guideline",
+          "journal": "Annals of Internal Medicine",
+          "year": 2019,
+          "citation_count": 44,
+          "first_author": "S. Grundy"
+        },
+        {
+          "pmid": "24788967",
+          "doi": "10.1161/STR.0000000000000024",
+          "url": "https://www.semanticscholar.org/paper/49be5b0b7828aa385a9be7717ed7db79b1247177",
+          "title": "Guidelines for the prevention of stroke in patients with stroke and transient ischemic attack: a guideline for healthcare professionals from the American Heart Association/American Stroke Association.",
+          "journal": "Stroke",
+          "year": 2014,
+          "citation_count": 4491,
+          "first_author": "W. Kernan"
+        },
+        {
+          "pmid": "38508836",
+          "doi": "10.1016/S1474-4422(24)00037-1",
+          "url": "https://www.semanticscholar.org/paper/e46df6470200f9fa789db1f90a73145f2b2ff606",
+          "title": "Secondary stroke prevention in people with atrial fibrillation: treatments and trials",
+          "journal": "The Lancet Neurology",
+          "year": 2024,
+          "citation_count": 6,
+          "first_author": "D. Seiffge"
+        },
+        {
+          "pmid": "30423391",
+          "doi": "10.1016/j.jacc.2018.11.002",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30423391/",
+          "title": "2018 AHA/ACC/AACVPR/AAPA/ABC/ACPM/ADA/AGS/APhA/ASPC/NLA/PCNA Guideline on the Management of Blood Cholesterol: Executive Summary.",
+          "journal": "Journal of the American College of Cardiology",
+          "year": 2018,
+          "citation_count": null,
+          "first_author": "Scott M Grundy"
+        },
+        {
+          "pmid": "37632337",
+          "doi": "10.1093/cvr/cvad135",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37632337/",
+          "title": "Stroke risk management in carotid atherosclerotic disease: a clinical consensus statement of the ESC Council on Stroke and the ESC Working Group on Aorta and Peripheral Vascular Diseases.",
+          "journal": "Cardiovascular research",
+          "year": 2025,
+          "citation_count": 21,
+          "first_author": "Piotr Musialek"
+        }
+      ]
+    },
+    "datasetName": "vera-answers-stroke-secondary-prevention-sample"
+  }
+]
