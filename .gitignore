@@ -4,6 +4,7 @@ __pycache__/
 *.pyo
 .env
 .env.*
+!.env.example
 *.egg-info/
 dist/
 build/
@@ -12,3 +13,9 @@ build/
 .ruff_cache/
 *.log
 .DS_Store
+
+# Generated evaluation outputs
+*_results.json
+final_verdicts.json
+evaluation_result_*.json
+runs/
