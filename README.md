@@ -1,7 +1,7 @@
 # Vera Clinical Answer Evaluation Framework
 
-> **Evaluated run:** `run_20260429_131322` · 6 records (5 patient-specific, 1 guideline-only) · Model: `gpt-4o` (decomposer), `gpt-4o-mini` (judges)
-> **Note on safety scores:** The safety judge in this run evaluated each claim in isolation against the patient profile only. A subsequent improvement (now in `main`) passes the full answer text to the safety judge so qualifiers present elsewhere in the answer are not double-counted as omissions. Safety issue counts in these verdicts are therefore upper-bound estimates; the true answer-level omission count is lower and will be reflected in the next run.
+> **Evaluated run:** `run_20260429_192150` · 6 records (5 patient-specific, 1 guideline-only) · Model: `gpt-4o` (decomposer), `gpt-4o-mini` (judges)
+> **Safety judge:** Each claim is evaluated in the context of the full answer text — a qualifier counts as present if it appears anywhere in the answer, not only in the claim sentence under review. Only qualifiers absent from the entire answer are flagged.
 
 ---
 
@@ -32,36 +32,59 @@ Input JSON (query + answer + metadata + references)
 │  Input Classifier   │  → PATIENT_SPECIFIC | GUIDELINE_ONLY
 └─────────────────────┘
        │
-       ├──── PATIENT_SPECIFIC ────────────────────────────────────────┐
-       │                                                               │
-       ▼                                                               │
-┌─────────────────────┐     ┌──────────────────────────────────────┐  │
-│   Decomposer A      │────►│  Per-claim atomic assertions         │  │
-│   (gpt-4o)          │     │  T1_THERAPY … T8_SAFETY              │  │
-└─────────────────────┘     └──────────────────────────────────────┘  │
-       │                                  │                            │
-       │              ┌───────────────────┼───────────────────┐        │
-       │              ▼                   ▼                   ▼        │
-       │    ┌──────────────────┐ ┌──────────────┐ ┌──────────────────┐│
-       │    │ Faithfulness     │ │    Safety    │ │  Actionability   ││
-       │    │ Judge            │ │    Judge     │ │  Judge           ││
-       │    │ (per-claim, PMC) │ │ (per-claim) │ │ (per-answer)     ││
-       │    └──────────────────┘ └──────────────┘ └──────────────────┘│
-       │                   │           │                   │           │
-       │    ┌──────────────────────────────────────────────┐          │
-       │    │           Omission Judge                      │          │
-       │    │   (expected-claim checklist vs. answer)       │          │
-       │    └──────────────────────────────────────────────┘          │
-       │                         │                                     │
-       ▼                         ▼                                     │
-┌─────────────────────────────────────────────────────────────────┐   │
-│                      Final Verdict                               │◄──┘
-│   Programmatic tier determination → LLM synthesis               │
-│   "ship as is" | "ship with caveat: X" | "do not ship — Y"      │
+       ├──── GUIDELINE_ONLY ──────────────────────────────────────────────────────┐
+       │                                                                           │
+       │                                                            ┌─────────────┴──────────────┐
+       │                                                            │   Guideline Evaluator      │
+       │                                                            │   accuracy / currency /    │
+       │                                                            │   completeness /           │
+       │                                                            │   groundedness (1–5 each)  │
+       │                                                            └─────────────┬──────────────┘
+       │                                                                          │
+       ├──── PATIENT_SPECIFIC ────────────────────────────────────────┐           │
+       │                                                               │           │
+       ▼                                                               │           │
+┌──────────────────────────────────────┐                              │           │
+│   Decomposer A  (gpt-4o)             │                              │           │
+│   • Atomic claim extraction          │                              │           │
+│   • Citation mapping per claim       │                              │           │
+│   • Two-pass citation propagation    │                              │           │
+│     (exact source_span + substring)  │                              │           │
+└──────────────────┬───────────────────┘                              │           │
+                   │ claims[]                                          │           │
+                   ▼                                                   │           │
+┌──────────────────────────────────────┐                              │           │
+│   Decomposer B  (Omission Judge)     │                              │           │
+│   Expected-claim checklist vs answer │                              │           │
+│   → ABSENT / PRESENT / PARTIAL       │                              │           │
+│     + severity (HIGH / MEDIUM / LOW) │                              │           │
+└──────────────────┬───────────────────┘                              │           │
+                   │                                                   │           │
+       ┌───────────┴──────────────────────────────┐                   │           │
+       │    Parallel judges (ThreadPoolExecutor)   │                   │           │
+       │                                           │                   │           │
+       ▼                    ▼                      ▼                   │           │
+┌──────────────┐   ┌─────────────────┐   ┌──────────────────┐        │           │
+│ Faithfulness │   │     Safety      │   │  Actionability   │        │           │
+│ Judge        │   │     Judge       │   │  Judge           │        │           │
+│              │   │                 │   │                  │        │           │
+│ per-claim    │   │ per-claim       │   │ per-answer       │        │           │
+│ PMC sections │   │ receives:       │   │ 4 dimensions     │        │           │
+│ → abstract   │   │ • patient query │   │ scored 1–5       │        │           │
+│ fallback     │   │ • full answer   │   │                  │        │           │
+│              │   │ • claim text    │   │                  │        │           │
+└──────┬───────┘   └────────┬────────┘   └────────┬─────────┘        │           │
+       └───────────────────┬┘                     │                   │           │
+                           ▼                      ▼                   │           │
+┌─────────────────────────────────────────────────────────────────┐   │           │
+│                        Final Verdict                             │◄──┘           │
+│   Programmatic 4-gate tier determination                         │               │
+│   → LLM synthesis (3–5 sentence localised verdict)              │               │
+│   "ship as is" | "ship with caveat: X" | "do not ship — Y"      │◄──────────────┘
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-All three per-claim judges (faithfulness, safety, actionability) run in parallel via `ThreadPoolExecutor`. Records currently run sequentially; parallel-record execution is the primary planned optimisation.
+The three per-claim judges (faithfulness, safety, actionability) run in parallel via `ThreadPoolExecutor`. Records are processed sequentially in the current implementation; parallel-record execution is the primary planned optimisation. The safety judge receives the full answer text alongside each claim so that qualifiers present elsewhere in the answer are not flagged as omissions at the claim level.
 
 ---
 
@@ -178,9 +201,9 @@ The LLM verdict synthesiser then writes a 3–5 sentence explanation that locali
 
 **Verdict:** `ship with caveat: requires more information about contraindications for each recommended drug class`
 
-**Scores:** Faithfulness issues: 6/6 claims unsupported (abstract-only, MEDIUM confidence) · Safety issues: 6/6 medium omissions (upper-bound — see run note) · Actionability: 4.0/5 (context calibration 5, cognitive load 3) · High gaps: 1 (contraindications) · Absent claims: 5 (1 HIGH, 3 MEDIUM, 1 LOW)
+**Scores:** Faithfulness issues: 6/6 claims unsupported (abstract-only, MEDIUM confidence) · Safety issues: 0/6 (all safe — qualifiers present elsewhere in answer) · Actionability: 4.0/5 (context calibration 5, decision clarity 4, acuity matching 4, cognitive load 3) · High gaps: 1 (contraindications) · Absent claims: 5 (1 HIGH, 3 MEDIUM, 1 LOW)
 
-**Assessment:** The answer correctly identifies ACE inhibitor/ARB preference when albuminuria or CKD is present, and lists acceptable alternatives when neither is present — guideline-concordant with ACC/AHA 2025 and ADA 2026. However, every cited paper returned abstract-only — full PMC text was unavailable — so all 6 faithfulness verdicts are `unsupported` at MEDIUM confidence rather than verified against source text. More critically, the answer recommends specific drug classes to a patient whose eGFR, potassium, and albuminuria status are unspecified, without stating that ACE inhibitors and ARBs are contraindicated in bilateral renal artery stenosis, require potassium monitoring, or carry hyperkalemia risk in combination with the SGLT2 inhibitors or metformin this patient likely takes. The cognitive load score of 3/5 reflects the answer's failure to front-load the decision — a clinician under time pressure must read three paragraphs before finding the primary recommendation. The single change that would move this to "ship as is": one sentence at the top stating "Check UACR, eGFR, and potassium before selecting drug class; avoid ACE inhibitors/ARBs if bilateral RAS is suspected."
+**Assessment:** The answer correctly identifies ACE inhibitor/ARB preference when albuminuria or CKD is present, and lists acceptable alternatives when neither is present — guideline-concordant with ACC/AHA 2025 and ADA 2026. Every cited paper returned abstract-only since neither guideline is in PMC OA, so all 6 faithfulness verdicts are `unsupported` at MEDIUM confidence rather than positively verified. The safety judge correctly found 0 claim-level omissions — each individual claim's context is covered within the answer — but the omission judge identified 5 whole-answer gaps: the single HIGH gap is the absence of contraindications for each recommended drug class (bilateral RAS for ACE inhibitors/ARBs, hyperkalemia risk with concurrent SGLT2 inhibitors or potassium-sparing agents), plus MEDIUM gaps for prerequisite labs, adverse effects, and monitoring. The cognitive load score of 3/5 reflects the answer's failure to front-load the decision — a clinician under time pressure must read through three paragraphs before finding the primary recommendation. The one change that would move this to "ship as is": one opening sentence stating which drug class applies to which patient subtype, followed immediately by the top contraindication for each.
 
 ---
 
@@ -188,9 +211,9 @@ The LLM verdict synthesiser then writes a 3–5 sentence explanation that locali
 
 **Verdict:** `ship with caveat: requires more information about contraindications to IV methylprednisolone`
 
-**Scores:** Faithfulness issues: 19/20 claims (6 missing_citation, 13 unsupported abstract-only, 1 supported) · Safety issues: 20/20 medium omissions (upper-bound — see run note) · Actionability: 4.75/5 · High gaps: 1 (methylprednisolone contraindications) · Absent claims: 4 (1 HIGH, 3 MEDIUM)
+**Scores:** Faithfulness issues: 20/21 claims (7 missing_citation, 13 unsupported abstract-only, 1 supported) · Safety issues: 0/21 (all safe — qualifiers present elsewhere in answer) · Actionability: 4.75/5 (context calibration 5, decision clarity 5, acuity matching 5, cognitive load 4) · High gaps: 1 (methylprednisolone contraindications) · Absent claims: 3 (1 HIGH, 2 MEDIUM)
 
-**Assessment:** This is the most detailed answer in the dataset and the highest-scoring on actionability (4.75/5) — the step-by-step structure, Oxford/Travis criteria table, and day-3 response decision tree are clinically useful. The 19 faithfulness issues are almost entirely an artefact of source availability: most cited gastroenterology papers are paywalled and returned only PubMed abstracts, so claims are marked `unsupported` at MEDIUM confidence rather than verified. The 6 `missing_citation` claims are the higher-risk subset — prophylactic anticoagulation dosing, the 7-day steroid ceiling, standard infliximab dosing, cyclosporine dosing, response monitoring criteria, and steroid non-withholding while awaiting pathogen results are all asserted without any cited source. The single blocking gap identified by the omission judge is the absence of contraindications to IV methylprednisolone (active untreated infection, uncontrolled hyperglycemia, prior steroid psychosis) — a clinician following this protocol for a patient with one of those conditions would proceed without a warranted pause.
+**Assessment:** The highest-scoring answer in the dataset on both actionability (4.75/5) and structural clarity — the step-by-step protocol, Oxford/Travis criteria table, and day-3 response decision tree are genuinely useful to a clinician. The safety judge found 0 claim-level omissions in this run, correctly identifying that the answer's step structure provides sufficient context around each individual claim. The 20 faithfulness issues are driven by two separate problems: 7 claims are `missing_citation` (assertions made without any cited source in the answer — prophylactic anticoagulation, 7-day steroid ceiling, standard infliximab dosing, cyclosporine dosing, day-3 monitoring criteria, response and non-response decision rules); the remaining 13 are `unsupported (abstract-only)` because most cited gastroenterology papers are paywalled. The single blocking whole-answer gap identified by the omission judge is the complete absence of contraindications to IV methylprednisolone (active untreated infection, uncontrolled hyperglycemia, prior steroid psychosis) — a clinician applying this protocol to a patient with one of those conditions would not receive a warranted pause.
 
 ---
 
@@ -198,9 +221,9 @@ The LLM verdict synthesiser then writes a 3–5 sentence explanation that locali
 
 **Verdict:** `ship with caveat: requires more information about must-not-miss diagnoses presenting similarly to PE and time-critical diagnoses requiring immediate action`
 
-**Scores:** Faithfulness issues: 20/20 claims (4 missing_citation, 16 unsupported abstract-only) · Safety issues: 19/20 medium omissions (upper-bound — see run note) · Actionability: 4.75/5 · High gaps: 2 (must-not-miss, time-critical) · Absent claims: 2 (2 HIGH)
+**Scores:** Faithfulness issues: 20/20 claims (6 missing_citation, 14 unsupported abstract-only) · Safety issues: 0/20 (all safe — qualifiers present elsewhere in answer) · Actionability: 4.75/5 (context calibration 5, decision clarity 5, acuity matching 5, cognitive load 4) · High gaps: 2 (must-not-miss, time-critical) · Absent claims: 2 (2 HIGH)
 
-**Assessment:** The answer correctly identifies PE with concurrent DVT as the leading diagnosis and walks through Wells score, D-dimer, and CTPA sequencing — guideline-concordant. Four threshold claims (Wells score cutoffs, D-dimer thresholds, PESI score, Hct cutoffs) carry no citations, correctly flagged as `missing_citation` since the answer asserts specific numerical values without sourcing them. The two HIGH omission gaps are the most clinically material finding: the answer does not mention that tension pneumothorax and acute aortic dissection can present with an identical triad (acute dyspnoea, chest pain, unilateral signs) and require immediate exclusion before anticoagulation is started — initiating anticoagulation in an aortic dissection is potentially fatal. For a differential diagnosis answer in an acute undifferentiated presentation, the must-not-miss exclusion list is arguably the highest-priority output; its complete absence is the reason this answer cannot ship as-is regardless of how well it covers PE itself.
+**Assessment:** The answer correctly identifies PE with concurrent DVT as the leading diagnosis and walks through Wells score, D-dimer, and CTPA sequencing — guideline-concordant. Six threshold and procedural claims carry no citations, correctly flagged as `missing_citation`. The safety judge found 0 claim-level omissions, correctly recognising that safety context is distributed across the answer's structured workup sections. The two HIGH whole-answer gaps — both `must_not_miss` category — are the most clinically material finding in this record: the answer does not mention that tension pneumothorax and acute aortic dissection can present with an identical triad (acute dyspnoea, pleuritic chest pain, unilateral signs) and require immediate exclusion before anticoagulation is initiated. Starting anticoagulation in an aortic dissection is potentially fatal. For a differential diagnosis answer in an acute undifferentiated presentation, the must-not-miss exclusion list is the single highest-priority output; its complete absence is the reason this answer cannot ship regardless of how comprehensively it covers PE itself.
 
 ---
 
@@ -208,9 +231,9 @@ The LLM verdict synthesiser then writes a 3–5 sentence explanation that locali
 
 **Verdict:** `ship with caveat: requires more information about contraindications for neuromodulators in this patient's profile`
 
-**Scores:** Faithfulness issues: 17/20 (1 missing_citation, 14 unsupported, 2 supported) · Safety issues: 19/20 medium omissions (upper-bound — see run note) · Actionability: 4.5/5 · High gaps: 1 (neuromodulator contraindications) · Absent claims: 4 (1 HIGH, 3 MEDIUM)
+**Scores:** Faithfulness issues: 17/20 (0 missing_citation, 14 unsupported, 3 supported) · Safety issues: 2/20 medium omissions · Actionability: 4.5/5 (context calibration 5, decision clarity 4, acuity matching 5, cognitive load 4) · High gaps: 1 (neuromodulator contraindications) · Absent claims: 4 (1 HIGH, 3 MEDIUM)
 
-**Assessment:** This answer demonstrates the strongest clinical reasoning in the patient-specific set — it correctly applies the VA RCT (NEJM 2019) to motivate a pH-impedance study before escalating therapy, distinguishes three GERD phenotypes (true acid reflux, reflux hypersensitivity, functional heartburn), and routes treatment by phenotype. Eight claims returned `source_type: unknown` because the cited DOIs resolved to Semantic Scholar rather than PubMed, providing only title and year metadata — this is an infrastructure retrieval gap, not necessarily a faithfulness failure. The HIGH gap is the neuromodulator contraindication list: tricyclic antidepressants (amitriptyline, nortriptyline — the most commonly recommended neuromodulators for esophageal hypersensitivity) are contraindicated in recent MI, QTc prolongation, urinary retention, and closed-angle glaucoma. A 45M with unspecified comorbidities could have any of these, and the answer provides no screen before recommending TCAs.
+**Assessment:** This answer demonstrates the strongest clinical reasoning in the patient-specific set — it correctly applies the VA RCT (NEJM 2019) to motivate a pH-impedance study before escalating therapy, distinguishes three GERD phenotypes (true acid reflux, reflux hypersensitivity, functional heartburn), and routes treatment by phenotype. Eight claims returned `source_type: unknown` because the cited DOIs resolved to Semantic Scholar rather than PubMed, providing only title and year metadata — an infrastructure retrieval gap, not a faithfulness failure. This is the only patient-specific answer where the safety judge detected genuine claim-level omissions after seeing the full answer: C08 (`AET >6%` threshold claim) and C20 (Laparoscopic Nissen fundoplication recommendation) were both flagged `omission/medium` because the answer does not adequately qualify either — AET >6% without specifying the testing conditions (on-therapy vs off-therapy pH-impedance) and fundoplication without noting that it is contraindicated in patients with impaired esophageal motility. The HIGH whole-answer gap is the neuromodulator contraindication list: TCAs (amitriptyline, nortriptyline) are contraindicated in recent MI, QTc prolongation, urinary retention, and closed-angle glaucoma — none are screened for in the answer for this patient whose comorbid status is unknown.
 
 ---
 
@@ -218,9 +241,9 @@ The LLM verdict synthesiser then writes a 3–5 sentence explanation that locali
 
 **Verdict:** `ship with caveat: requires more information about prerequisite labs and contraindications for diltiazem and metoprolol`
 
-**Scores:** Faithfulness issues: 15/15 claims (6 missing_citation, 8 unsupported abstract-only, 1 unsupported unknown) · Safety issues: 15/15 medium omissions (upper-bound — see run note) · Actionability: 4.5/5 · High gaps: 2 (prerequisite labs, contraindications) · Absent claims: 4 (2 HIGH, 2 MEDIUM)
+**Scores:** Faithfulness issues: 15/15 claims (7 missing_citation, 7 unsupported abstract-only, 1 unsupported unknown) · Safety issues: 0/15 (all safe — qualifiers present elsewhere in answer) · Actionability: 4.5/5 (context calibration 5, decision clarity 4, acuity matching 5, cognitive load 4) · High gaps: 2 (prerequisite labs, contraindications) · Absent claims: 5 (2 HIGH, 2 MEDIUM, 1 LOW)
 
-**Assessment:** The answer correctly prioritises rate control, recommends IV diltiazem or metoprolol per ACC/AHA/ACCP/HRS 2023, and addresses anticoagulation risk stratification with CHA₂DS₂-VASc scoring — all appropriate. All 15 claims are either `missing_citation` or `unsupported (abstract-only)` because the 2023 guideline document is not in PMC OA; the faithfulness judge cannot verify any specific assertion against source text. Both HIGH gaps identified by the omission judge are clinically material: diltiazem is absolutely contraindicated in pre-excitation syndromes (WPW) where it can precipitate ventricular fibrillation, and in decompensated heart failure; metoprolol is contraindicated in decompensated HF and active bronchospasm. In a new-onset AFib presentation, the ECG rhythm strip has not yet been reviewed for delta waves — an answer recommending AV-nodal blockade without explicitly requiring "rule out WPW on ECG first" is unsafe for this patient population. The one-sentence gate that would move this to "ship as is": "Before starting any AV-nodal blocking agent, confirm the absence of pre-excitation (delta waves) on ECG and exclude decompensated heart failure."
+**Assessment:** The answer correctly prioritises rate control, recommends IV diltiazem or metoprolol per ACC/AHA/ACCP/HRS 2023, and addresses anticoagulation risk stratification with CHA₂DS₂-VASc — all appropriate. All 15 claims are either `missing_citation` or `unsupported (abstract-only)` because the 2023 guideline is not in PMC OA; no claim can be positively verified against source text. The safety judge found 0 claim-level omissions, with the answer's overall structure providing adequate context for each individual claim. Both HIGH whole-answer gaps are clinically material: diltiazem is absolutely contraindicated in pre-excitation syndromes (WPW), where AV-nodal blockade causes unopposed accessory pathway conduction and can precipitate ventricular fibrillation; metoprolol is contraindicated in decompensated heart failure and active bronchospasm. In a new-onset AFib presentation, the ECG has not yet been reviewed for delta waves — recommending AV-nodal blockade without the explicit gate "rule out WPW on ECG first" is the single most dangerous omission in this dataset. The one sentence that would move this to "ship as is": "Before starting any AV-nodal blocking agent, confirm the absence of pre-excitation (delta waves) on ECG and exclude decompensated heart failure."
 
 ---
 
@@ -240,7 +263,7 @@ The LLM verdict synthesiser then writes a 3–5 sentence explanation that locali
 
 ## 3. Limitations of This Assessment
 
-**n=5 is not a sample.** Five answers cannot support any population-level conclusion about Vera's accuracy, safety rate, or calibration. The set was not randomly drawn — it covers five distinct clinical domains chosen (presumably) to be representative, which means selection bias is built in. Any frequency-based claim ("X% of answers have Y problem") derived from this evaluation is noise dressed as signal.
+**n=6 is not a sample.** Six answers — 5 patient-specific, 1 guideline-only — cannot support any population-level conclusion about Vera's accuracy, safety rate, or calibration. The set was not randomly drawn; it covers six distinct clinical domains chosen (presumably) to be representative, which means selection bias is built in. Any frequency-based claim ("X% of answers have Y problem") derived from this evaluation is noise dressed as signal. The guideline-only record contributes a different signal type (whole-answer accuracy/currency/completeness/groundedness) that is not directly comparable to the per-claim faithfulness and safety verdicts for the five patient-specific records.
 
 **All cited papers are abstract-only.** Every paper cited in the five patient-specific answers returned only a PubMed abstract; none were available in PMC Open Access. This means every faithfulness verdict in this evaluation is `unsupported (MEDIUM confidence)`, not verified against the actual source text. We cannot distinguish between a claim that is accurately sourced but whose paper is paywalled, and a claim that is subtly wrong. The faithfulness judge's verdicts are directionally useful but cannot be treated as definitive.
 
@@ -254,7 +277,7 @@ The LLM verdict synthesiser then writes a 3–5 sentence explanation that locali
 
 ---
 
-## 4. Scale Playbook: n=5 → Hundreds of Millions of Questions
+## 4. Scale Playbook: n=6 → Hundreds of Millions of Questions
 
 ### The core problem at scale
 
@@ -306,17 +329,17 @@ This plan covers the evaluation and quality-assurance loop. It does not cover: (
 
 ## 5. Vera Improvement Playbook
 
-The five answers reveal five concrete, recurring failure modes. These are not generic recommendations — each is grounded in specific claims from the evaluation.
+The six answers reveal five concrete, recurring failure modes across the patient-specific records. These are not generic recommendations — each is grounded in specific claims from the evaluation. The guideline-only record (Q6) scored 5/5 on all dimensions and does not contribute to the failure patterns below, though it carries its own confidence caveat (see §2 Q6).
 
 ### Finding 1: Every answer omits contraindications for its primary recommendation
 
-Across all five answers, the single most common HIGH gap is a missing contraindication list. Q1 recommends ACE inhibitors without flagging bilateral RAS. Q5 recommends diltiazem without ruling out WPW. Q4 recommends TCAs without flagging QT prolongation or urinary retention. This is not random — it reflects a systematic generation pattern where the model describes *what to use* without describing *who should not use it*.
+Across all five patient-specific answers, the single most common HIGH gap is a missing contraindication list. Q1 recommends ACE inhibitors without flagging bilateral RAS or hyperkalemia risk. Q5 recommends diltiazem without ruling out WPW — the most dangerous omission in the dataset. Q4 recommends TCAs without flagging QT prolongation, urinary retention, or closed-angle glaucoma. This is not random — it reflects a systematic generation pattern where the model describes *what to use* without describing *who must not use it*.
 
 **Fix:** Add a generation rule (system prompt or RLHF signal) that requires every first-line therapy recommendation to include a one-sentence contraindication gate. The sentence should follow the recommendation immediately, not appear in a later section. Example target output: "IV diltiazem is first-line for rate control — do not use if WPW, decompensated HF, or systolic BP <90."
 
 ### Finding 2: 29% of claims across the dataset have no cited source
 
-22 of 76 claims across the five patient-specific answers were flagged `citation_absent=True` by the decomposer — assertions in the answer text with no `[doi: ...]` marker attached. Examples: prophylactic anticoagulation in UC (C08), standard infliximab dosing at 5mg/kg (C16 in UC), the "do not extend steroids beyond 7 days" rule (C14 in UC). These are not wrong — they are likely clinically accurate — but they are unverifiable. At scale, uncited assertions are the highest-risk category: the model cannot be corrected on them through source-grounded faithfulness checking.
+Across the 82 claims extracted from the five patient-specific answers (6 + 21 + 20 + 20 + 15), a significant fraction carry no cited source in the generated answer text — assertions with no `[doi: ...]` marker attached. Examples: prophylactic anticoagulation in UC, standard infliximab dosing at 5 mg/kg, the "do not extend steroids beyond 7 days" rule, all four Wells score thresholds in the PE answer, and six of fifteen AFib claims. These are not necessarily wrong — they are likely clinically accurate — but they are unverifiable by any source-grounded judge. At scale, uncited assertions are the highest-risk category: the model cannot be corrected on them through faithfulness checking, because there is no cited source to check against.
 
 **Fix:** Train Vera to cite a source for every verifiable assertion. If no citation is available, the claim should either be omitted or explicitly labelled as expert consensus without a specific trial reference. Uncited claim rate is a metric that should be tracked per answer and per specialty domain.
 
@@ -328,7 +351,7 @@ Every paper cited across all five answers is paywalled — none were available i
 
 ### Finding 4: Actionability is high but cognitive load is the consistent weak point
 
-All five answers scored 4.0–4.75/5 on actionability overall, but cognitive load was the weakest dimension in four of five answers (scores of 3–4/5). The answers tend to front-load guideline context, study citations, and epidemiology before stating what to do. A clinician in an acute presentation (AFib, PE, UC flare) needs the primary action in the first two sentences, not after reading through a literature review.
+All five patient-specific answers scored 4.0–4.75/5 on actionability overall, but cognitive load was the weakest dimension in every answer (Q1: 3/5, Q2–Q5: 4/5). Cognitive load of 3/5 in Q1 means a clinician under time pressure must read through multiple paragraphs before finding the primary recommendation. Even at 4/5, the answers consistently front-load guideline context, trial citations, and mechanistic background before stating what to do. A clinician managing an acute AFib with RVR or a PE presentation needs the primary action and its exclusion gate in the first two sentences — not after a literature review.
 
 **Fix:** Restructure the generation template so that the first sentence of every patient-specific answer is the primary recommendation (not background). The current UC answer actually does this well in its `<guideline>` block — apply that pattern to all answers. Evaluate with a "time to primary action" metric: how many seconds does it take a reader to find the first actionable step.
 
