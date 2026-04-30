@@ -1,15 +1,20 @@
 import json
+import logging
 import os
 import sys
+from collections import defaultdict
 from dotenv import load_dotenv
 from openai import OpenAI
 
 sys.stdout.reconfigure(encoding="utf-8")
+log = logging.getLogger("vera.decomposer_a")
 
 load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+# Decomposer uses a stronger model — claim extraction quality directly gates all downstream judges.
+# Override with DECOMPOSER_MODEL env var; falls back to OPENAI_MODEL, then gpt-4o.
+MODEL = os.getenv("DECOMPOSER_MODEL") or os.getenv("OPENAI_MODEL") or "gpt-4o"
 
 SYSTEM_PROMPT = """You are a clinical claim extraction specialist for Vera, a medical decision-support system. Your job is to decompose a clinical answer into a structured list of atomic, independently verifiable claims.
 
@@ -53,6 +58,36 @@ CITATION MAPPING
 ----------------
 Map each claim to the DOI(s) cited in the answer for that specific assertion. If a claim has no citation in the answer, set citations to [] and flag citation_absent: true.
 
+CITATION INHERITANCE
+--------------------
+When one source sentence or bullet is split into multiple atomic claims, every child claim MUST inherit ALL citations from that source sentence. The citation belongs to the fact asserted, not to the sentence structure.
+
+A citation marker at the END of a bullet or sentence covers ALL facts stated in that bullet or sentence, not just the last sub-clause.
+
+WRONG — citation lost on split:
+  Source bullet: "CBC, CMP, CRP, albumin — low albumin (≤25 g/L) + CRP ≥100 mg/L predicts steroid failure [doi:10.x/y]"
+  C06: "CBC, CMP, CRP, albumin should be monitored."         | citations: []       ← WRONG
+  C07: "Low albumin ≤25 g/L + CRP ≥100 mg/L predicts failure" | citations: ["10.x/y"]  ← correct
+
+RIGHT — citation inherited by all children from the same bullet:
+  C06: "CBC, CMP, CRP, albumin should be monitored."          | citations: ["10.x/y"]  ← inherit
+  C07: "Low albumin ≤25 g/L + CRP ≥100 mg/L predicts failure" | citations: ["10.x/y"]
+
+Never set citation_absent: true on a claim whose source bullet or sentence contained a citation.
+
+SOURCE_SPAN RULE
+----------------
+source_span MUST be the complete source sentence or bullet point — never a fragment or sub-clause.
+When one bullet/sentence yields multiple atomic claims, ALL of those claims MUST share the IDENTICAL source_span (the full bullet/sentence text, stripped of markdown formatting).
+
+WRONG — different fragments assigned to siblings:
+  C06 source_span: "CBC, CMP, CRP, albumin — low albumin ≤25 g/L + CRP ≥100 mg/L predicts failure"
+  C07 source_span: "low albumin ≤25 g/L + CRP ≥100 mg/L predicts failure"   ← sub-fragment, WRONG
+
+RIGHT — identical full bullet assigned to all siblings:
+  C06 source_span: "CBC, CMP, CRP, albumin — low albumin ≤25 g/L + CRP ≥100 mg/L predicts steroid failure"
+  C07 source_span: "CBC, CMP, CRP, albumin — low albumin ≤25 g/L + CRP ≥100 mg/L predicts steroid failure"
+
 GRANULARITY GUIDANCE
 --------------------
 - One recommendation per claim. "Use X and monitor Y" → two claims.
@@ -77,7 +112,7 @@ Return a JSON object with this exact structure:
       "citation_absent": false,
       "uncertain": false,
       "uncertainty_reason": null,
-      "source_span": "exact phrase from the answer this claim was extracted from"
+      "source_span": "complete source sentence or bullet — never a sub-fragment"
     }
   ]
 }"""
@@ -88,6 +123,92 @@ GENERATED ANSWER:
 {answer}
 
 Extract all atomic claims from this answer. Apply all rules strictly: split bundled claims, preserve every conditional qualifier, flag uncertainty, map citations, and note any claim with no citation in the answer."""
+
+
+def _propagate_citations(claims: list[dict]) -> int:
+    """
+    Safety net for citation inheritance on split claims.
+
+    Pass 1 — exact match: group claims by identical source_span.
+    Pass 2 — substring match: if a cited claim's span is a sub-string of an
+      uncited claim's span (or vice versa), they came from the same bullet and
+      the citation should be shared. This catches the case where the model
+      correctly identifies the full bullet for the monitoring claim but uses a
+      sub-fragment for the threshold claim extracted from the same bullet.
+
+    Modifies claims in-place and returns the number of claims fixed.
+    """
+    # --- Pass 1: exact source_span grouping ---
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for c in claims:
+        span = (c.get("source_span") or "").strip()
+        if span:
+            groups[span].append(c)
+
+    fixed = 0
+
+    def _apply_group(group: list[dict], label: str) -> int:
+        seen: set[str] = set()
+        all_citations: list[str] = []
+        for c in group:
+            for doi in c.get("citations") or []:
+                if doi not in seen:
+                    all_citations.append(doi)
+                    seen.add(doi)
+        if not all_citations:
+            return 0
+        n = 0
+        for c in group:
+            if c.get("citation_absent") or not c.get("citations"):
+                c["citations"] = all_citations
+                c["citation_absent"] = False
+                n += 1
+                log.info(
+                    f"  Citation propagated ({label}) → [{c['id']}] inherited "
+                    f"{all_citations} (span: \"{(c.get('source_span') or '')[:60]}\")"
+                )
+        return n
+
+    for span, group in groups.items():
+        if len(group) >= 2:
+            fixed += _apply_group(group, "exact")
+
+    # --- Pass 2: substring match for mis-fragmented spans ---
+    # Build list of (span, claim) for claims that still lack citations
+    uncited = [c for c in claims if c.get("citation_absent") or not c.get("citations")]
+    cited = [c for c in claims if c.get("citations")]
+
+    for uc in uncited:
+        uc_span = (uc.get("source_span") or "").strip().lower()
+        if not uc_span:
+            continue
+        donors: list[dict] = []
+        for ct in cited:
+            ct_span = (ct.get("source_span") or "").strip().lower()
+            if not ct_span:
+                continue
+            # One span contains the other → same source bullet
+            if uc_span in ct_span or ct_span in uc_span:
+                donors.append(ct)
+        if donors:
+            seen: set[str] = set()
+            merged: list[str] = []
+            for d in donors:
+                for doi in d.get("citations") or []:
+                    if doi not in seen:
+                        merged.append(doi)
+                        seen.add(doi)
+            if merged:
+                uc["citations"] = merged
+                uc["citation_absent"] = False
+                fixed += 1
+                log.info(
+                    f"  Citation propagated (substring) → [{uc['id']}] inherited "
+                    f"{merged} from [{', '.join(d['id'] for d in donors)}]"
+                )
+
+    return fixed
+
 
 
 def decompose(record: dict) -> dict:
@@ -108,6 +229,15 @@ def decompose(record: dict) -> dict:
     )
     result = json.loads(response.choices[0].message.content)
     result["id"] = record["id"]
+
+    fixed = _propagate_citations(result.get("claims", []))
+    if fixed:
+        log.info(f"Citation propagation: fixed {fixed} claim(s) in record {record['id']}")
+        # Recount uncited claims after propagation
+        result["uncited_after_propagation"] = sum(
+            1 for c in result.get("claims", []) if c.get("citation_absent")
+        )
+
     return result
 
 

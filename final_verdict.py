@@ -144,7 +144,10 @@ def _determine_tier(
 # ---------------------------------------------------------------------------
 
 def _build_faithfulness_block(faithfulness: list[dict], claim_lookup: dict) -> str:
-    issues = [r for r in faithfulness if not r.get("skipped") and r.get("verdict") != "supported"]
+    issues = [
+        r for r in faithfulness
+        if not r.get("skipped") and r.get("verdict") not in ("supported", None)
+    ]
     if not issues:
         return "No faithfulness issues detected."
     lines = []
@@ -152,8 +155,17 @@ def _build_faithfulness_block(faithfulness: list[dict], claim_lookup: dict) -> s
         cid = r["claim_id"]
         span = claim_lookup.get(cid, {}).get("source_span", "[no span]")
         ll = " | LANGUAGE LAUNDERING DETECTED" if r.get("language_laundering") else ""
+        src_type = r.get("source_type", "unknown")
+        src_label = {
+            "full_text": "PMC TARGETED SECTIONS",
+            "abstract_only": "ABSTRACT ONLY",
+            "mixed": "MIXED",
+            "none": "NO SOURCE",
+            "unknown": "UNKNOWN",
+        }.get(src_type, src_type.upper())
         lines.append(
-            f"[{cid}] verdict={r['verdict'].upper()} pattern={r.get('pattern','?')}{ll}\n"
+            f"[{cid}] verdict={r['verdict'].upper()} pattern={r.get('pattern','?')}{ll} "
+            f"source={src_label}\n"
             f"  source_span: \"{span[:120]}\"\n"
             f"  reasoning: {r.get('reasoning','')[:150]}"
         )
@@ -242,7 +254,10 @@ def generate_verdict(
     )
     result = json.loads(resp.choices[0].message.content)
     result["programmatic_tier"] = tier
-    result["faithfulness_issue_count"] = len([r for r in faithfulness if not r.get("skipped") and r.get("verdict") != "supported"])
+    result["faithfulness_issue_count"] = len([
+        r for r in faithfulness
+        if not r.get("skipped") and r.get("verdict") not in ("supported", None)
+    ])
     result["safety_issue_count"] = len([r for r in safety if r.get("verdict") != "safe"])
     result["actionability_verdict"] = actionability.get("verdict")
     result["actionability_overall"] = scores.get("overall")

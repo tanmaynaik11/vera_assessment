@@ -102,17 +102,40 @@ def _render_patient_specific(r: dict):
         for c in r["claims"]:
             f = c.get("faithfulness", {})
             s = c.get("safety", {})
+            src_type = f.get("source_type", "")
+            src_label = {
+                "full_text": "PMC sections",
+                "abstract_only": "Abstract only",
+                "mixed": "Mixed",
+                "none": "No source",
+            }.get(src_type, "—")
             rows.append({
                 "ID": c["id"],
                 "Type": c["type"],
-                "Claim": c["text"][:90],
-                "Source Span": c.get("source_span", "")[:60],
-                "Faithfulness": f.get("verdict", "skipped") if not f.get("skipped") else "skipped",
+                "Claim": c["text"],
+                "Source Span": c.get("source_span", ""),
+                "Faithfulness": f.get("verdict", "—") if not f.get("skipped") else "skipped",
                 "F. Confidence": f.get("confidence", "—"),
+                "Evidence": src_label,
                 "Safety": s.get("verdict", "—"),
                 "Severity": (s.get("severity") or "—").upper(),
             })
-        st.dataframe(rows, use_container_width=True, hide_index=True)
+        st.dataframe(
+            rows,
+            use_container_width=True,
+            hide_index=True,
+            column_config={
+                "Claim": st.column_config.TextColumn("Claim", width="large"),
+                "Source Span": st.column_config.TextColumn("Source Span", width="medium"),
+                "ID": st.column_config.TextColumn("ID", width="small"),
+                "Type": st.column_config.TextColumn("Type", width="small"),
+                "Faithfulness": st.column_config.TextColumn("Faithfulness", width="small"),
+                "F. Confidence": st.column_config.TextColumn("F. Confidence", width="small"),
+                "Evidence": st.column_config.TextColumn("Evidence", width="small"),
+                "Safety": st.column_config.TextColumn("Safety", width="small"),
+                "Severity": st.column_config.TextColumn("Severity", width="small"),
+            },
+        )
 
     absent = [
         e for e in (r.get("omissions") or {}).get("expected_claims", [])

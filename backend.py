@@ -7,6 +7,9 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8")
 
+import logging_config
+logging_config.setup()
+
 from fastapi import FastAPI, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
